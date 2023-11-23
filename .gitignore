@@ -2,27 +2,12 @@
 # Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
 ################################################################################
 
-/SOLUCION 2 - WEB APII/Dominio/.vs/Dominio/FileContentIndex/65be5731-b987-4c57-a851-23d5e0b88a70.vsidx
-/SOLUCION 2 - WEB APII/Dominio/.vs/Dominio/FileContentIndex/dbcf40ef-3be6-4b03-a3ba-afe89d4b74d7.vsidx
-/SOLUCION 2 - WEB APII/Dominio/.vs/Dominio/FileContentIndex/f71c5b52-040f-48fe-b7a1-df2278fa1f79.vsidx
+/SOLUCION 2 - WEB APII/Dominio/.vs
 /SOLUCION 1 - MVC/WebApp/appsettings.json
-/SOLUCION 2 - WEB APII/DataAccess/bin/Debug/net7.0/DataAccess.dll
-/SOLUCION 2 - WEB APII/DataAccess/bin/Debug/net7.0/DataAccess.pdb
-/SOLUCION 2 - WEB APII/DataAccess/obj/Debug/net7.0/DataAccess.dll
-/SOLUCION 2 - WEB APII/DataAccess/obj/Debug/net7.0/DataAccess.pdb
-/SOLUCION 2 - WEB APII/Dominio/.vs/Dominio/DesignTimeBuild/.dtbcache.v2
-/SOLUCION 2 - WEB APII/Dominio/.vs/Dominio/v17/.suo
-/SOLUCION 2 - WEB APII/Servicios/bin/Debug/net7.0/DataAccess.dll
-/SOLUCION 2 - WEB APII/Servicios/bin/Debug/net7.0/DataAccess.pdb
-/SOLUCION 2 - WEB APII/Servicios/obj/Debug/net7.0/Servicios.csproj.AssemblyReference.cache
-/SOLUCION 2 - WEB APII/WebApi/Controllers/EspeciesController.cs
-/SOLUCION 2 - WEB APII/WebApi/bin/Debug/net7.0/DataAccess.dll
-/SOLUCION 2 - WEB APII/WebApi/bin/Debug/net7.0/DataAccess.pdb
-/SOLUCION 2 - WEB APII/WebApi/bin/Debug/net7.0/WebApi.dll
-/SOLUCION 2 - WEB APII/WebApi/bin/Debug/net7.0/WebApi.pdb
-/SOLUCION 2 - WEB APII/WebApi/obj/Debug/net7.0/WebApi.csproj.AssemblyReference.cache
-/SOLUCION 2 - WEB APII/WebApi/obj/Debug/net7.0/WebApi.dll
-/SOLUCION 2 - WEB APII/WebApi/obj/Debug/net7.0/WebApi.pdb
-/SOLUCION 2 - WEB APII/WebApi/obj/Debug/net7.0/ref/WebApi.dll
-/SOLUCION 2 - WEB APII/WebApi/obj/Debug/net7.0/refint/WebApi.dll
+/SOLUCION 2 - WEB APII/DataAccess/bin
+/SOLUCION 2 - WEB APII/DataAccess/obj
+/SOLUCION 2 - WEB APII/Servicios/bin
+/SOLUCION 2 - WEB APII/Servicios/obj
+/SOLUCION 2 - WEB APII/WebApi/bin
+/SOLUCION 2 - WEB APII/WebApi/obj
 /.vs/slnx.sqlite
