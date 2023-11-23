@@ -13,5 +13,7 @@ namespace DataAccess
         Task<Ecosistema> Add(Ecosistema entity);
 
         Task<IEnumerable<Ecosistema>> GetAll(string filters);
+
+        Task<bool> Remove(string id);
     }
 }

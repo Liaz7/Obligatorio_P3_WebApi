@@ -105,6 +105,14 @@ namespace Servicios
         {
             return ConvertirListaAListaDto(_repositorio.GetAll());
         }
+
+        public void EliminarEnCascada(EcosistemaDto ecosistemaDto)
+        {
+            ecosistemaDto.Validar();
+            Ecosistema newEcosistema = _repositorio.GetByNombre(ecosistemaDto.EcNombre);
+            _repositorio.EliminarEnCascada(newEcosistema);
+        }
+
         /*
         public IEnumerable<EcosistemaDto> GetByNombreEspecie(string nombre)
         {
@@ -126,12 +134,6 @@ namespace Servicios
             return ecosistemaDto;
         }
 
-        public void EliminarEnCascada(EcosistemaDto ecosistemaDto)
-        {
-            ecosistemaDto.Validar();
-            Ecosistema newEcosistema = _repositorio.GetByNombre(ecosistemaDto.EcNombre);
-            _repositorio.EliminarEnCascada(newEcosistema);
-        }
 
         public void Update(string nombre, EcosistemaDto ecosistemaDto)
         {

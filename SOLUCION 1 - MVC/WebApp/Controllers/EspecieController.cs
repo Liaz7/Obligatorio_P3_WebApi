@@ -177,8 +177,8 @@ namespace WebApp.Controllers
         {
             try
             {
-                /*ViewBag.Ecosistemas = new SelectList(_servicioEcosistema.GetAll(), "EcNombre", "EcNombre");
-                ViewBag.Especies = new SelectList(_servicioEspecie.GetAll(), "EsNombreCientifico", "EsNombreVulgar");*/
+                ViewBag.Ecosistemas = new SelectList(_servicioEcosistema.GetAll(), "EcNombre", "EcNombre");
+                ViewBag.Especies = new SelectList(_servicioEspecie.GetAll(), "EsNombreCientifico", "EsNombreVulgar");
             }
             catch (ElementoNoValidoException e)
             {

@@ -63,9 +63,9 @@ namespace WebApp.Controllers
         {
             try
             {
-                /*_servicioEcosistema.EliminarEnCascada(ecosistemaDto);
+                _servicioEcosistema.EliminarEnCascada(ecosistemaDto);
                 TempData["Exito"] = "El ecositema fue eliminado con exito";
-                return RedirectToAction("ListaEcosistema");*/
+                return RedirectToAction("ListaEcosistema");
             }
             catch (ElementoNoValidoException e)
             {
