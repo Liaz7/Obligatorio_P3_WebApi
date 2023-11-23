@@ -19,10 +19,10 @@ namespace DataAccess
             return Context.Set<UbicacionGeografica>().FirstOrDefault(eo => eo.UbicacionGeograficaId == id);
         }
 
-        public UbicacionGeografica GetByLatitudYLongitud(decimal latitud, decimal longitud)
+        /*public UbicacionGeografica GetByLatitudYLongitud(decimal latitud, decimal longitud)
         {
             return Context.Set<UbicacionGeografica>()
                 .FirstOrDefault(eo => eo.Latitud == latitud && eo.Longitud == longitud);
-        }
+        }*/
     }
 }

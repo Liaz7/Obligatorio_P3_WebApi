@@ -65,9 +65,6 @@ namespace Servicios
                 }
 
                 EspecieDto newEspecieDto = new EspecieDto(newEspecie);
-                _repositorio.Save();
-                _repositorioEspecieAmenaza.Save();
-                _repositorioEcosistemaEspecie.Save();
                 return newEspecieDto;
             }
             catch (Exception ex)

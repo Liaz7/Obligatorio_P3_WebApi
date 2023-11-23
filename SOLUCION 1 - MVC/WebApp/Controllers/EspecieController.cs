@@ -35,7 +35,7 @@ namespace WebApp.Controllers
         {
             try
             {
-                //ViewBag.Ecosistemas = new SelectList(_servicioEcosistema.GetAll(), "EcNombre", "EcNombre");
+                ViewBag.Ecosistemas = new SelectList(_servicioEcosistema.GetAll(), "EcNombre", "EcNombre");
                 ViewBag.Amenazas = new SelectList(_servicioAmenaza.GetAll(), "AmId", "AmNombre");
                 ViewBag.Estados = new SelectList(_servicioEstado.GetAll(), "ConsId", "ConsNombre");
             }
@@ -102,6 +102,7 @@ namespace WebApp.Controllers
 
             return View("ListaEspecie");
         }
+
         /*
         [HttpGet]
         public IActionResult BuscarPorEspeciesEnPeligroDeExtincion()
@@ -120,66 +121,15 @@ namespace WebApp.Controllers
             return View("ListaEspecie");
         }
 
-        [HttpGet]
-        public ActionResult FotoEspecie(string EsNombreCientifico)
-        {
-            return View(new MyModel());
-        }*/
-
-
-       /* [HttpPost]
-        public ActionResult FotoDEspecie(string EsNombreCientifico, MyModel model)
-        {
-            string nombreCientifico = ViewBag.NombreCientifico;
-
-            if (model.ImageFile != null && model.ImageFile.Length > 0)
-            {
-                //extraer nombre y extension
-                string fileNameConExtension = Path.GetFileName(model.ImageFile.FileName);
-                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
-                string fileExt = Path.GetExtension(fileNameConExtension);
-
-                //validar extension
-                if (fileExt.ToLower() != ".jpg" && fileExt.ToLower() != ".jpeg")
-                {
-                    ModelState.AddModelError("ImageFile", "Solo se permiten archivos JPG.");
-                    return View(model);
-                }
-                //armar path de archivo a escribir
-                string rutaRaizApp = _webHostEnvironment.WebRootPath;
-                rutaRaizApp = Path.Combine(rutaRaizApp, "imagenes");
-
-                string fileNameModificado = fileName + "_001" + fileExt;
-                string rutaCompleta = Path.Combine(rutaRaizApp, fileNameModificado);
-
-                //preparar FileStream para Create en el path anterior
-                FileStream stream = new FileStream(rutaCompleta, FileMode.Create);
-
-                //grabar el archivo en disco
-                model.ImageFile.CopyTo(stream);
-
-                //
-                /*EspecieDto especie = _servicioEspecie.GetOneByNombreCientifico(EsNombreCientifico);
-                especie.Foto = fileNameModificado;
-                _servicioEspecie.Update(EsNombreCientifico, especie);
-
-            }
-
-
-            return RedirectToAction("EspecieMain");
-
-            // redirigir a otra acción o volver a la vista
-        }*/
-
-
+        /*
         [HttpGet]
         public IActionResult BuscarEnUnRango(decimal presoMinimo, decimal pesoMaximo)
         {
             try
             {
-                /*IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByRango(presoMinimo, pesoMaximo);
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByRango(presoMinimo, pesoMaximo);
                 ViewBag.Especies = especieDtos.Count() == 0 ? null : especieDtos;
-                ViewBag.Ecosistemas = null;*/
+                ViewBag.Ecosistemas = null;
             }
             catch (ElementoNoValidoException e)
             {
@@ -189,7 +139,7 @@ namespace WebApp.Controllers
             return View("ListaEspecie");
         }
 
-        /*  [HttpGet]
+          [HttpGet]
         public IActionResult EspeciesQueHabitanEseEcosistema(string filtroNombre)
         {
             try
@@ -227,8 +177,8 @@ namespace WebApp.Controllers
         {
             try
             {
-                /*ViewBag.Ecosistemas = new SelectList(_servicioEcosistema.GetAll(), "EcNombre", "EcNombre");
-                ViewBag.Especies = new SelectList(_servicioEspecie.GetAll(), "EsNombreCientifico", "EsNombreVulgar");*/
+                ViewBag.Ecosistemas = new SelectList(_servicioEcosistema.GetAll(), "EcNombre", "EcNombre");
+                ViewBag.Especies = new SelectList(_servicioEspecie.GetAll(), "EsNombreCientifico", "EsNombreVulgar");
             }
             catch (ElementoNoValidoException e)
             {

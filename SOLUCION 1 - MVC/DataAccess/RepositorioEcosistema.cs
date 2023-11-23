@@ -23,14 +23,36 @@ namespace DataAccess
             return _restContext.Add(entity).GetAwaiter().GetResult();
         }
 
-        /*
+        
         public IEnumerable<Ecosistema> GetAll()
         {
             String filters = "/listarEcosistemas"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
             return _restContext.GetAll(filters).GetAwaiter().GetResult();
         }
 
+        public Ecosistema GetByNombre(string nombre)
+        {
+            String filters = "/listarEcosistemas"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+            IEnumerable<Ecosistema> ecosistemas = _restContext.GetAll(filters).GetAwaiter().GetResult();
+            Ecosistema ecosistema = null;
 
+            foreach (Ecosistema eco in ecosistemas)
+            {
+                if (eco.EcNombre == nombre)
+                {
+                    
+                }
+            }
+
+            return ecosistema;
+        }
+
+        public void EliminarEnCascada(Ecosistema ecosistema)
+        {
+            _restContext.Remove(ecosistema.EcNombre).GetAwaiter().GetResult();
+        }
+
+        /*
         
         
         public Ecosistema GetByEcosisitema(Ecosistema eco)
@@ -38,26 +60,14 @@ namespace DataAccess
             return Context.Set<Ecosistema>().FirstOrDefault(ecosistema => ecosistema.EcNombre == eco.EcNombre);
         }
 
-        public void EliminarEnCascada(Ecosistema  ecosistema)
-        {
-            if (ecosistema != null)
-            {
-                Context.Entry(ecosistema).State = EntityState.Deleted;
-                Context.SaveChanges();
-                Context.Remove(ecosistema);
-            }
-               
-        }
+        
 
         public Ecosistema GetById(int id)
         {
             return Context.Set<Ecosistema>().FirstOrDefault(ecosistema => ecosistema.EcUbicacionGeograficaId == id);
         }
 
-        public Ecosistema GetByNombre(string nombre)
-        {
-            return Context.Set<Ecosistema>().FirstOrDefault(eco => eco.EcNombre == nombre);
-        }*/
+        */
 
         /*public IEnumerable<Ecosistema> GetByNombreEspecie(string ecNombre)
         {

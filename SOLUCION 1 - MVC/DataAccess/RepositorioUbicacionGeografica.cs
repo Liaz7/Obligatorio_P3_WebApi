@@ -10,19 +10,21 @@ namespace DataAccess
 {
     public class RepositorioUbicacionGeografica : Repositorio<UbicacionGeografica>, IRepositorioUbicacionGeografica 
     {
-        public RepositorioUbicacionGeografica(DbContext dbContext)
+        private IRestContext<UbicacionGeografica> _restContext;
+
+        public RepositorioUbicacionGeografica(IRestContext<UbicacionGeografica> restContext)
         {
-            Context = dbContext;
+            _restContext = restContext;
         }
         public UbicacionGeografica GetById(int id)
         {
-            return Context.Set<UbicacionGeografica>().FirstOrDefault(eo => eo.UbicacionGeograficaId == id);
+            return _restContext.GetById(id).GetAwaiter().GetResult();
         }
 
-        public UbicacionGeografica GetByLatitudYLongitud(decimal latitud, decimal longitud)
+        /*public UbicacionGeografica GetByLatitudYLongitud(decimal latitud, decimal longitud)
         {
             return Context.Set<UbicacionGeografica>()
                 .FirstOrDefault(eo => eo.Latitud == latitud && eo.Longitud == longitud);
-        }
+        }*/
     }
 }

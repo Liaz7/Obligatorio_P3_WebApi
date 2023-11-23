@@ -101,11 +101,19 @@ namespace Servicios
             }
         }
 
-        /*public IEnumerable<EcosistemaDto> GetAll()
+        public IEnumerable<EcosistemaDto> GetAll()
         {
             return ConvertirListaAListaDto(_repositorio.GetAll());
         }
 
+        public void EliminarEnCascada(EcosistemaDto ecosistemaDto)
+        {
+            ecosistemaDto.Validar();
+            Ecosistema newEcosistema = _repositorio.GetByNombre(ecosistemaDto.EcNombre);
+            _repositorio.EliminarEnCascada(newEcosistema);
+        }
+
+        /*
         public IEnumerable<EcosistemaDto> GetByNombreEspecie(string nombre)
         {
             return ConvertirListaAListaDto(_repositorio.GetByNombreEspecie(nombre));
@@ -126,12 +134,6 @@ namespace Servicios
             return ecosistemaDto;
         }
 
-        public void EliminarEnCascada(EcosistemaDto ecosistemaDto)
-        {
-            ecosistemaDto.Validar();
-            Ecosistema newEcosistema = _repositorio.GetByNombre(ecosistemaDto.EcNombre);
-            _repositorio.EliminarEnCascada(newEcosistema);
-        }
 
         public void Update(string nombre, EcosistemaDto ecosistemaDto)
         {
@@ -142,5 +144,5 @@ namespace Servicios
             _repositorio.Update(eco);
             _repositorio.Save();
         }*/
-            }
+    }
 }

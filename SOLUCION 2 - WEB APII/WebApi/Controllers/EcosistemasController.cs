@@ -140,12 +140,12 @@ namespace WebApi.Controllers
         [HttpGet("/api/ecosistemas/listarEcosistemas")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult ListaEspecie([FromQuery] EspecieDto especieDto)
+        public IActionResult ListarEcosistemas([FromQuery] EcosistemaDto ecoDto)
         {
             try
             {
-                IEnumerable<EspecieDto> listEspecieDto = _servicioEspecie.GetAll();
-                return Ok(listEspecieDto);
+                IEnumerable<EcosistemaDto> listEcosistemaDto = _servicioEcosistema.GetAll();
+                return Ok(listEcosistemaDto);
             }
             catch (ElementoNoValidoException ex)
             {

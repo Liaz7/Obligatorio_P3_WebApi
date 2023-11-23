@@ -12,12 +12,14 @@ namespace Servicios
     public interface IServicioEcosistema
     {
         EcosistemaDto Add(EcosistemaDto ecosistemaDto);
-        /*void Update(string nombre, EcosistemaDto ecosistemaDto);
+        void EliminarEnCascada(EcosistemaDto EcosistemaDto);
         IEnumerable<EcosistemaDto> GetAll();
+        /*void Update(string nombre, EcosistemaDto ecosistemaDto);
+        
         IEnumerable<EcosistemaDto> GetByNombreEspecie(string nombre);
         EcosistemaDto GetByNombre(string nombre);
         EcosistemaDto GetById(int id);
-        void EliminarEnCascada(EcosistemaDto EcosistemaDto);*/
+        */
 
     }
 }

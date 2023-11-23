@@ -12,16 +12,20 @@ namespace DataAccess
     {
 
         Ecosistema Add(Ecosistema entity);
-        /*
-        Ecosistema GetByEcosisitema(Ecosistema eco);
-
+        void EliminarEnCascada(Ecosistema ecosistema);
         IEnumerable<Ecosistema> GetAll();
 
-        IEnumerable<Ecosistema> GetByNombreEspecie(string ecNombre);
         Ecosistema GetByNombre(string nombre);
 
-        Ecosistema GetById(int id);
+        /*
+        Ecosistema GetByEcosisitema(Ecosistema eco);
+        IEnumerable<Ecosistema> GetByNombreEspecie(string ecNombre);
+        IEnumerable<Ecosistema> GetAll();
+       
+        
 
-        void EliminarEnCascada(Ecosistema ecosistema);*/
+        Ecosistema GetById(int id);*/
+
+
     }
 }

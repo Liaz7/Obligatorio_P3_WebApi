@@ -63,9 +63,9 @@ namespace WebApp.Controllers
         {
             try
             {
-                /*_servicioEcosistema.EliminarEnCascada(ecosistemaDto);
+                _servicioEcosistema.EliminarEnCascada(ecosistemaDto);
                 TempData["Exito"] = "El ecositema fue eliminado con exito";
-                return RedirectToAction("ListaEcosistema");*/
+                return RedirectToAction("ListaEcosistema");
             }
             catch (ElementoNoValidoException e)
             {
@@ -82,8 +82,8 @@ namespace WebApp.Controllers
                 {
                     e.EcUbicacionGeografica = new UbicacionGeografica(_servicioUbicacionGeografica.GetById(e.EcUbicacionGeograficaId));
 
-                }
-                ViewBag.Ecosistemas = _servicioEcosistema.GetAll();*/
+                }*/
+                ViewBag.Ecosistemas = _servicioEcosistema.GetAll();
 
             }
             catch (ElementoNoValidoException e)

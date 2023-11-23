@@ -58,8 +58,8 @@ namespace Servicios
                 _repositorioUbicacionGeografica.Add(ecosistemaDto.EcUbicacionGeografica);
                 _repositorioUbicacionGeografica.Save();
 
-                UbicacionGeografica ubicacionGeografica = _repositorioUbicacionGeografica.GetByLatitudYLongitud(ecosistema.EcUbicacionGeografica.Latitud, ecosistema.EcUbicacionGeografica.Longitud);
-                ecosistema.EcUbicacionGeograficaId = ubicacionGeografica.UbicacionGeograficaId;
+                //UbicacionGeografica ubicacionGeografica = _repositorioUbicacionGeografica.GetByLatitudYLongitud(ecosistema.EcUbicacionGeografica.Latitud, ecosistema.EcUbicacionGeografica.Longitud);
+                //ecosistema.EcUbicacionGeograficaId = ubicacionGeografica.UbicacionGeograficaId;
                 Ecosistema newEcosistema = _repositorio.Add(ecosistema);
 
 

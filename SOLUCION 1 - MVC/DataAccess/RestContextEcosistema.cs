@@ -60,5 +60,52 @@ namespace DataAccess
                 return createdEntity;
                 // Devuelve el objeto creado y deserializado.
         }
+
+        public async Task<IEnumerable<Ecosistema>> GetAll(string filters)
+        {
+            // Método para obtener todos los elementos de la API con opciones de filtros.
+
+            HttpResponseMessage response = await httpClient.GetAsync(apiUrl + filters);
+            // Realiza una solicitud GET a la URL de la API con filtros opcionales y espera la respuesta.
+
+            string errorMessage = await response.Content.ReadAsStringAsync();
+            // Lee el mensaje de error (si lo hay) de la respuesta HTTP.
+
+            HttpErrorHandler.ThrowExceptionFromHttpStatusCodeAsync(response, errorMessage);
+            // Llama a un manejador de errores personalizado para verificar el código de estado HTTP y lanzar excepciones si es necesario.
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            // Lee el cuerpo de la respuesta HTTP.
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+            // Configura opciones para la deserialización JSON, como el formato de nombres en camelCase y la escritura en formato JSON con sangría para una mejor legibilidad.
+
+            var entities = JsonSerializer.Deserialize<List<Ecosistema>>(responseBody, options);
+            // Realiza la deserialización del cuerpo de la respuesta en una lista de objetos del tipo T.
+
+            return entities;
+            // Devuelve la lista de entidades deserializadas.
+        }
+
+        public async Task<bool> Remove(string id)
+        {
+            // Método para eliminar un elemento de la API por su ID.
+
+            HttpResponseMessage response = await httpClient.DeleteAsync($"{apiUrl}/{id}");
+            // Realiza una solicitud DELETE a la URL de la API con el ID especificado y espera la respuesta.
+
+            string errorMessage = await response.Content.ReadAsStringAsync();
+            // Lee el mensaje de error (si lo hay) de la respuesta HTTP.
+
+            HttpErrorHandler.ThrowExceptionFromHttpStatusCodeAsync(response, errorMessage);
+            // Llama a un manejador de errores personalizado para verificar el código de estado HTTP y lanzar excepciones si es necesario.
+
+            return response.IsSuccessStatusCode;
+            // Devuelve true si la solicitud fue exitosa (código de estado HTTP 2xx) y false en caso contrario.
+        }
     }
 }

@@ -27,9 +27,6 @@ namespace WebApi.Controllers
             _servicioEcosistemaEspecie = servicioEcosistemaEspecie;
         }
 
-
-
-
         [HttpPost("/api/especies/EnviarregistrarEspecies")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
