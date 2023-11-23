@@ -11,26 +11,12 @@ using System.Threading.Tasks;
 
 public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
 {
-    /*public RepositorioEspecie(DbContext dbContext)
-    {
-        Context = dbContext;
-    }*/
-
     private IRestContext<Especie> _restContext;
 
     public RepositorioEspecie(IRestContext<Especie> restContext)
     {
-        //_repositoryTipoRest = new RestContextLogin("https://localhost:7111/api/Usuarios");
         _restContext = restContext;
     }
-
-
-
-
-   /* public Usuario Add(Usuario entity)
-    {
-        return _restContext.Add(entity).GetAwaiter().GetResult();
-    }*/
 
     public IEnumerable<Especie> GetByNombreCientifico(string nombreCientifico)
     {
@@ -46,20 +32,14 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
     public IEnumerable<Especie> GetAll()
     {
         String filters = "/listarEspecies"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
-
-        
-
         return _restContext.GetAll(filters).GetAwaiter().GetResult();
     }
-
+    
+    /*
     public IEnumerable<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo)
     {
         String filters = "/listarEspeciesPorRango?pesoMinimo="; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
-
-        
-
         filters = filters + pesoMinimo + "&pesoMaximo=" + pesoMaximo;
-
         return _restContext.GetAll(filters).GetAwaiter().GetResult();
     }
 

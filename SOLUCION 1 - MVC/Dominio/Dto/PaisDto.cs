@@ -19,8 +19,8 @@ namespace Dominio.Dto
 
         public PaisDto(Pais pais)
         {
-            this.PaisIso = pais.EcIsoPais;
-            this.PaisNombre = pais.EcNombrePais;
+            this.PaisIso = pais.PaisIso;
+            this.PaisNombre = pais.PaisNombre;
             this.EcosistemasIdsPais = pais.EcosistemasIdsPais;
         }
     }

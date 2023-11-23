@@ -11,6 +11,8 @@ namespace DataAccess
     {
         IEnumerable<Pais> GetAll();
 
-        Pais GetByNombre(string nombre);
+        IEnumerable<Pais> GetByAlias(string alias);
+
+       /* Pais GetByNombre(string nombre);*/
     }
 }

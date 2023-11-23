@@ -1,4 +1,5 @@
 ﻿using Dominio.Entidades;
+using Dominio.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,23 +11,18 @@ namespace DataAccess
 {
     public class RepositorioEcosistema : Repositorio<Ecosistema>, IRepositorioEcosistema
     {
-        public RepositorioEcosistema(DbContext dbContext)
-        {
-            Context = dbContext;
-        }
+        private IRestContextEcosistema _restContext;
 
-        private IRestContext<Ecosistema> _restContext;
-
-        public RepositorioEcosistema(IRestContext<Ecosistema> restContext)
+        public RepositorioEcosistema(IRestContextEcosistema restContext)
         {
-            //_repositoryTipoRest = new RestContextLogin("https://localhost:7111/api/Usuarios");
             _restContext = restContext;
         }
-        public Ecosistema GetByEcosisitema(Ecosistema eco)
-        {
-            return Context.Set<Ecosistema>().FirstOrDefault(ecosistema => ecosistema.EcNombre == eco.EcNombre);
-        }
 
+        public Ecosistema Add(Ecosistema entity)
+        {
+            return _restContext.Add(entity).GetAwaiter().GetResult();
+        }
+        
         public IEnumerable<Ecosistema> GetAll()
         {
             String filters = "/listarEcosistemas"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
@@ -34,6 +30,14 @@ namespace DataAccess
             
 
             return _restContext.GetAll(filters).GetAwaiter().GetResult();
+        }
+
+
+        /*
+        
+        public Ecosistema GetByEcosisitema(Ecosistema eco)
+        {
+            return Context.Set<Ecosistema>().FirstOrDefault(ecosistema => ecosistema.EcNombre == eco.EcNombre);
         }
 
         public void EliminarEnCascada(Ecosistema  ecosistema)
@@ -45,7 +49,6 @@ namespace DataAccess
                 Context.Remove(ecosistema);
             }
                
-
         }
 
         public Ecosistema GetById(int id)
@@ -56,9 +59,9 @@ namespace DataAccess
         public Ecosistema GetByNombre(string nombre)
         {
             return Context.Set<Ecosistema>().FirstOrDefault(eco => eco.EcNombre == nombre);
-        }
+        }*/
 
-        public IEnumerable<Ecosistema> GetByNombreEspecie(string ecNombre)
+        /*public IEnumerable<Ecosistema> GetByNombreEspecie(string ecNombre)
         {
             return Context.Set<Ecosistema>()
                 .Where(e => Context.Set<Especie>()
@@ -74,6 +77,6 @@ namespace DataAccess
                             .Select(ee => ee.EcNombre)
                             .Contains(ea.EcNombre)))
                 .ToList();
-        }
+        }*/
     }
 }

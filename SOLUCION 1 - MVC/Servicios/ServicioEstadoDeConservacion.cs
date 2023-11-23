@@ -29,12 +29,12 @@ namespace Servicios
             return estadosDto;
         }
 
-        public EstadoDeConservacionDto GetByNombre(string nombre)
+        /*public EstadoDeConservacionDto GetByNombre(string nombre)
         {
             EstadoDeConservacion estado = _repositorio.GetByNombre(nombre);
             EstadoDeConservacionDto estadoDto = new EstadoDeConservacionDto(estado);
             return estadoDto;
-        }
+        }*/
         public IEnumerable<EstadoDeConservacionDto> GetAll()
         {
             return ConvertirListaAListaDto(_repositorio.GetAll());

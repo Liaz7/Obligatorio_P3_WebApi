@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public interface IRepositorioEcosistema : IRepositorio<Ecosistema>
+    public interface IRepositorioEcosistema
     {
+
+        Ecosistema Add(Ecosistema entity);
+        /*
         Ecosistema GetByEcosisitema(Ecosistema eco);
 
         IEnumerable<Ecosistema> GetAll();
@@ -19,6 +22,6 @@ namespace DataAccess
 
         Ecosistema GetById(int id);
 
-        void EliminarEnCascada(Ecosistema ecosistema);
+        void EliminarEnCascada(Ecosistema ecosistema);*/
     }
 }

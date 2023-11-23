@@ -8,24 +8,38 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class RepositorioPais : Repositorio<RepositorioPais>, IRepositorioPais
+    public class RepositorioPais : Repositorio<Pais>, IRepositorioPais
     {
-        public RepositorioPais(DbContext dbContext)
+        private IRestContext<Pais> _restContext;
+
+        public RepositorioPais(IRestContext<Pais> restContext)
         {
-            Context = dbContext;
+            _restContext = restContext;
         }
 
-        public Pais Add(Pais entity)
+        /*public Pais Add(Pais entity)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
         public IEnumerable<Pais> GetAll()
         {
-            return Context.Set<Pais>().ToList();
+            String filters = "/listarPaises";
+            return _restContext.GetAll(filters).GetAwaiter().GetResult();
         }
 
-        public IEnumerable<Pais> GetByAlias(string pais)
+        public IEnumerable<Pais> GetByAlias(string alias)
+        {
+            String filters = "/listarPaises?paisIso="; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+
+            string nombreCientificoEscapado = Uri.EscapeDataString(alias);
+
+            filters = filters + nombreCientificoEscapado;
+
+            return _restContext.GetAll(filters).GetAwaiter().GetResult();
+        }
+
+        /*public IEnumerable<Pais> GetByAlias(string pais)
         {
             return Context.Set<Pais>().Where(usuario => usuario.EcIsoPais.Contains(pais));
         }
@@ -45,6 +59,6 @@ namespace DataAccess
         public void Update(Pais entity)
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

@@ -9,8 +9,8 @@ namespace Dominio.Entidades
 {
     public class Pais
     {
-        public string EcNombrePais { get; set; }
-        public string EcIsoPais { get; set; }
+        public string PaisIso { get; set; }
+        public string PaisNombre { get; set; }
         public List<string> EcosistemasIdsPais { get; set; }
         public ICollection<Ecosistema> Ecosistemas { get; set; }
 
@@ -18,8 +18,8 @@ namespace Dominio.Entidades
 
         public Pais(PaisDto pais) 
         {
-            this.EcIsoPais = pais.PaisIso;
-            this.EcNombrePais = pais.PaisNombre;
+            this.PaisIso = pais.PaisIso;
+            this.PaisNombre = pais.PaisNombre;
         }
 
         public Pais()
