@@ -1,4 +1,5 @@
 ﻿using Dominio.Dto;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -155,11 +156,50 @@ namespace DataAccess
             // Devuelve el objeto deserializado.
         }
 
+        public async Task<Usuario> AddUsuario(Usuario entity)
+        {
+            // Método para agregar un nuevo elemento a la API.
+            string newapiUrl = apiUrl;
+            string entityJson = JsonSerializer.Serialize(entity);
+            // Serializa el objeto entity a formato JSON.
+
+            if (entity.UsuarioContrasenia != "")
+            {
+                newapiUrl = apiUrl + "/register";
+            }
+
+            StringContent content = new StringContent(entityJson, System.Text.Encoding.UTF8, "application/json");
+            // Crea un contenido de tipo StringContent con el JSON serializado.
+
+            HttpResponseMessage response = await httpClient.PostAsync(newapiUrl, content);
+            // Realiza una solicitud POST a la URL de la API con el contenido JSON y espera la respuesta.
+
+            string errorMessage = await response.Content.ReadAsStringAsync();
+            // Lee el mensaje de error (si lo hay) de la respuesta HTTP.
+
+            HttpErrorHandler.ThrowExceptionFromHttpStatusCodeAsync(response, errorMessage);
+            // Llama a un manejador de errores personalizado para verificar el código de estado HTTP y lanzar excepciones si es necesario.
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            // Lee el cuerpo de la respuesta HTTP.
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+            // Configura opciones para la deserialización JSON.
+
+            var createdEntity = JsonSerializer.Deserialize<Usuario>(responseBody, options);
+            // Realiza la deserialización del cuerpo de la respuesta en un objeto del tipo T.
+
+            return createdEntity;
+            // Devuelve el objeto creado y deserializado.
+        }
+
         public async Task<T> Add(T entity)
         {
             // Método para agregar un nuevo elemento a la API.
-
-            
 
             string entityJson = JsonSerializer.Serialize(entity);
             // Serializa el objeto entity a formato JSON.

@@ -91,21 +91,19 @@ namespace DataAccess
             // Devuelve la lista de entidades deserializadas.
         }
 
-        public async Task<bool> Remove(string id)
+        public async Task<bool> Remove(string ecNombre)
         {
-            // Método para eliminar un elemento de la API por su ID.
 
-            HttpResponseMessage response = await httpClient.DeleteAsync($"{apiUrl}/{id}");
-            // Realiza una solicitud DELETE a la URL de la API con el ID especificado y espera la respuesta.
+            HttpResponseMessage apiResponse = await httpClient.DeleteAsync($"{apiUrl}/borrarEcosistemas?EcNombre={Uri.EscapeDataString(ecNombre)}");
 
-            string errorMessage = await response.Content.ReadAsStringAsync();
-            // Lee el mensaje de error (si lo hay) de la respuesta HTTP.
+            if (!apiResponse.IsSuccessStatusCode)
+            {
+                string errorMessage = await apiResponse.Content.ReadAsStringAsync();
+                HttpErrorHandler.ThrowExceptionFromHttpStatusCodeAsync(apiResponse, errorMessage);
+                return false;
+            }
 
-            HttpErrorHandler.ThrowExceptionFromHttpStatusCodeAsync(response, errorMessage);
-            // Llama a un manejador de errores personalizado para verificar el código de estado HTTP y lanzar excepciones si es necesario.
-
-            return response.IsSuccessStatusCode;
-            // Devuelve true si la solicitud fue exitosa (código de estado HTTP 2xx) y false en caso contrario.
+            return true;
         }
     }
 }

@@ -37,17 +37,23 @@ namespace DataAccess
         public Usuario Add(Usuario entity)
         {
             
-           return _restContext.Add(entity).GetAwaiter().GetResult();
+           return _restContext.AddUsuario(entity).GetAwaiter().GetResult();
         }
 
 
         public Usuario GetUsuarioByAlias(string alias)
         {
-           /* String filters = "?"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+            IEnumerable<Usuario> usuarios = _restContext.GetAll("").GetAwaiter().GetResult();
+            Usuario usuario = null;
+            foreach (Usuario user in usuarios)
+            {
+                if (user.UsuarioAlias == alias)
+                {
+                    usuario = user;
+                }
+            }
 
-            filters = filters + "UsuarioAlias=" + alias;*/
-
-            return _restContext.GetByName(alias).GetAwaiter().GetResult();
+            return usuario;
         }
 
         public UsuarioDto Login(UsuarioDto loginDto)

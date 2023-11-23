@@ -40,7 +40,7 @@ namespace DataAccess
             {
                 if (eco.EcNombre == nombre)
                 {
-                    
+                    ecosistema = eco;
                 }
             }
 
