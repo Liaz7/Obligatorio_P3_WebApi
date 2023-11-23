@@ -114,6 +114,13 @@ namespace Servicios
             return ecosistemaDto;
         }
 
+        public void EliminarEnCascada(EcosistemaDto ecosistemaDto)
+        {
+            ecosistemaDto.Validar();
+            Ecosistema newEcosistema = _repositorio.GetByNombre(ecosistemaDto.EcNombre);
+            _repositorio.EliminarEnCascada(newEcosistema);
+        }
+
         public EcosistemaDto Remove(EcosistemaDto ecosistemaDto)
         {
             ecosistemaDto.Validar();

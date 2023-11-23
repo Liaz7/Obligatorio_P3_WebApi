@@ -18,6 +18,7 @@ namespace Servicios
         IEnumerable<EcosistemaDto> GetByNombreEspecie(string nombre);
         EcosistemaDto GetByNombre(string nombre);
 
+        void EliminarEnCascada(EcosistemaDto EcosistemaDto);
         EcosistemaDto GetById(int id);
 
     }

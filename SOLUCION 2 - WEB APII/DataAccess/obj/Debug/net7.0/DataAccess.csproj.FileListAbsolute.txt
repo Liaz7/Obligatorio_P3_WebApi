@@ -15,3 +15,20 @@ C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\DataAccess\obj\Debug\
 C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\DataAccess\obj\Debug\net7.0\DataAccess.pdb
 C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\DataAccess\obj\Debug\net7.0\DataAccess.genruntimeconfig.cache
 C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\bin\Debug\net7.0\DataAccess.deps.json
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\bin\Debug\net7.0\DataAccess.runtimeconfig.json
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\bin\Debug\net7.0\DataAccess.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\bin\Debug\net7.0\Dominio.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\bin\Debug\net7.0\Dominio.pdb
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfo.cs
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CopyComplete
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\refint\DataAccess.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.pdb
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\DataAccess.genruntimeconfig.cache
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll

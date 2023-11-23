@@ -15,3 +15,20 @@ C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Servicios\obj\Debug\n
 C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Servicios\obj\Debug\net7.0\refint\Servicios.dll
 C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Servicios\obj\Debug\net7.0\Servicios.pdb
 C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Servicios\obj\Debug\net7.0\ref\Servicios.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\bin\Debug\net7.0\Servicios.deps.json
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\bin\Debug\net7.0\Servicios.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\bin\Debug\net7.0\Servicios.pdb
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\bin\Debug\net7.0\DataAccess.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\bin\Debug\net7.0\Dominio.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\bin\Debug\net7.0\Dominio.pdb
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.csproj.AssemblyReference.cache
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.AssemblyInfoInputs.cache
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.AssemblyInfo.cs
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.csproj.CopyComplete
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\refint\Servicios.dll
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\Servicios.pdb
+C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Servicios\obj\Debug\net7.0\ref\Servicios.dll
