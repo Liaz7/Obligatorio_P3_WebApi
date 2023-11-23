@@ -44,7 +44,7 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
             from e in Context.Set<Especie>()
             join ee in Context.Set<EcosistemaEspecie>() on e.EsNombreCientifico equals ee.EsNombreCientifico
             join ea in Context.Set<EcosistemaAmenaza>() on ee.EcNombre equals ea.EcNombre where e.EstadoDeConservacionId == "2"
-               && (Context.Set<EcosistemaAmenaza>().Count(ea => ea.EcNombre == ee.EcNombre) > 3
+               || (Context.Set<EcosistemaAmenaza>().Count(ea => ea.EcNombre == ee.EcNombre) > 3
                    || Context.Set<EcosistemaEspecie>().Count(ea => ea.EcNombre == ea.EcNombre) > 3)
                && Context.Set<Ecosistema>().Any(ec => ec.EcNombre == ee.EcNombre && ec.EstadoDeConservacionId == "2")
             select e

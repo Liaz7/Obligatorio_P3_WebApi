@@ -26,7 +26,7 @@ namespace WebApi.Controllers
             _servicioEcosistemaEspecie = servicioEcosistemaEspecie;
         }
 
-        
+
         [HttpPost("/api/especies/registrarEspecies")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -40,16 +40,16 @@ namespace WebApi.Controllers
             }
             catch (ElementoNoValidoException ex)
             {
-              return BadRequest(ex);
+                return BadRequest(ex);
             }
 
-           
+
         }
 
         [HttpGet("/api/especies/listarEspecies")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult ListaEspecie([FromQuery] EspecieDto especieDto)
+        public IActionResult ListaEspecie(EspecieDto especieDto)
         {
             try
             {
@@ -61,7 +61,45 @@ namespace WebApi.Controllers
                 return NotFound(ex);
             }
 
-          
+
         }
+
+        [HttpGet("/api/especies/listarEspeciesEnPeligro")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult BuscarPorEspeciesEnPeligroDeExtincion()
+        {
+            try
+            {
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetEspeciesEnPeligroDeExtincion();
+               return Ok(especieDtos);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+               return BadRequest(ex);
+            }
+
+            
+        }
+
+        [HttpGet("/api/especies/listarEcosistemasEnLosQueNoHabitanUnaEspecie")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult EcosistemasQueNoHabitanUnaEspecie(string nombreEspecie)
+        {
+            try
+            {
+                IEnumerable<EcosistemaDto> ecosistemaDtos = _servicioEcosistema.GetByNombreEspecie(nombreEspecie);
+                return Ok(ecosistemaDtos);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+                return BadRequest(ex);
+            }
+
+           
+        }
+
+
     }
 }
