@@ -22,18 +22,16 @@ namespace DataAccess
         {
             return _restContext.Add(entity).GetAwaiter().GetResult();
         }
-        
+
+        /*
         public IEnumerable<Ecosistema> GetAll()
         {
             String filters = "/listarEcosistemas"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
-
-            
-
             return _restContext.GetAll(filters).GetAwaiter().GetResult();
         }
 
 
-        /*
+        
         
         public Ecosistema GetByEcosisitema(Ecosistema eco)
         {

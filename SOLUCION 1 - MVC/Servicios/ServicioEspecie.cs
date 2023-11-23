@@ -96,26 +96,21 @@ namespace Servicios
             return ConvertirListaAListaDto(_repositorio.GetByRango(rangoMinimo, rangoMaximo));
         }
 
-/*public IEnumerable<EspecieDto> GetByNombreCientifico(string nombreCientifico)
-{
-    return ConvertirListaAListaDto(_repositorio.GetByNombreCientifico(nombreCientifico));
+        public IEnumerable<EspecieDto> GetByNombreCientifico(string nombreCientifico)
+        {
+            return ConvertirListaAListaDto(_repositorio.GetByNombreCientifico(nombreCientifico));
 
-}
-public void Update(string nombreCientifico, EspecieDto especieDto)
-{
-    especieDto.Validar();
-    Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
-    ThrowExceptionIfNotFound(especie);
-    especie.CopyEspecie(especieDto);
-    _repositorio.Update(especie);
-    _repositorio.Save();
-}*/
-/*
-public void Remove(string nombreCientifico)
-{
-throw new NotImplementedException();
-}
-      /*  public void Update(string nombreCientifico, EspecieDto especieDto)
+        }
+
+        public IEnumerable<EspecieDto> GetByNombreEcosistema(string ecNombre)
+        {
+            return ConvertirListaAListaDto(_repositorio.GetByNombreEcosistema(ecNombre));
+        }
+
+
+
+        /*
+        public void Update(string nombreCientifico, EspecieDto especieDto)
         {
             especieDto.Validar();
             Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
@@ -123,36 +118,50 @@ throw new NotImplementedException();
             especie.CopyEspecie(especieDto);
             _repositorio.Update(especie);
             _repositorio.Save();
+        }*/
+        /*
+        public void Remove(string nombreCientifico)
+        {
+        throw new NotImplementedException();
         }
+              /*  public void Update(string nombreCientifico, EspecieDto especieDto)
+                {
+                    especieDto.Validar();
+                    Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
+                    ThrowExceptionIfNotFound(especie);
+                    especie.CopyEspecie(especieDto);
+                    _repositorio.Update(especie);
+                    _repositorio.Save();
+                }
 
-public IEnumerable<EspecieDto> GetEspeciesEnPeligroDeExtincion()
-{
-return ConvertirListaAListaDto(_repositorio.GetEspeciesEnPeligroDeExtincion());
-}
-
-public EspecieDto GetOneByNombreCientifico(string nombreCientifico)
-{
-Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
-ThrowExceptionIfNotFound(especie);
-EspecieDto especieDto = new EspecieDto(especie);
-return especieDto;
-}
-
-return ConvertirListaAListaDto(_repositorio.GetByNombreEcosistema(ecNombre));
-}*/
+        public IEnumerable<EspecieDto> GetEspeciesEnPeligroDeExtincion()
+        {
+        return ConvertirListaAListaDto(_repositorio.GetEspeciesEnPeligroDeExtincion());
+        }
 
         public EspecieDto GetOneByNombreCientifico(string nombreCientifico)
         {
-            Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
-            ThrowExceptionIfNotFound(especie);
-            EspecieDto especieDto = new EspecieDto(especie);
-            return especieDto;
-        }
-            
-        public IEnumerable<EspecieDto> GetByNombreEcosistema(string ecNombre)
-        {
-            return ConvertirListaAListaDto(_repositorio.GetByNombreEcosistema(ecNombre));
+        Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
+        ThrowExceptionIfNotFound(especie);
+        EspecieDto especieDto = new EspecieDto(especie);
+        return especieDto;
         }
 
-}
+        return ConvertirListaAListaDto(_repositorio.GetByNombreEcosistema(ecNombre));
+        }
+
+                public EspecieDto GetOneByNombreCientifico(string nombreCientifico)
+                {
+                    Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
+                    ThrowExceptionIfNotFound(especie);
+                    EspecieDto especieDto = new EspecieDto(especie);
+                    return especieDto;
+                }
+
+                public IEnumerable<EspecieDto> GetByNombreEcosistema(string ecNombre)
+                {
+                    return ConvertirListaAListaDto(_repositorio.GetByNombreEcosistema(ecNombre));
+                }*/
+
+    }
 }

@@ -35,7 +35,6 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
         return _restContext.GetAll(filters).GetAwaiter().GetResult();
     }
     
-    /*
     public IEnumerable<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo)
     {
         String filters = "/listarEspeciesPorRango?pesoMinimo="; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
@@ -66,7 +65,7 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
     public Especie GetByNombre(string nombre)
     {
         return Context.Set<Especie>().FirstOrDefault(eo => eo.EsNombreCientifico == nombre);
-    }
+    }*/
 
     public IEnumerable<Especie> GetByNombreEcosistema(string ecNombre)
     {
@@ -76,5 +75,5 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
             where ee.Habitan == true && ee.EcNombre == ecNombre
             select e
         ).Distinct().ToList();
-    }*/
+    }
 }

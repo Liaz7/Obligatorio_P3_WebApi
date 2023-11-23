@@ -49,22 +49,6 @@ namespace WebApi.Controllers
 
         }
 
-        [HttpGet("/api/especies/listarPorNombreCientifico")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult BuscarPorNombreCientifico(string filtroNombre)
-        {
-            try
-            {
-                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByNombreCientifico(filtroNombre);
-                return Ok(especieDtos);
-            }
-            catch (ElementoNoValidoException ex)
-            {
-                return BadRequest(ex);
-            }
-        }
-
         [HttpGet("/api/especies/listarEspeciesEnUnRango")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -128,8 +112,6 @@ namespace WebApi.Controllers
             {
                 return NotFound(ex);
             }
-
-
         }
 
         [HttpGet("/api/especies/listarEspeciesEnPeligro")]

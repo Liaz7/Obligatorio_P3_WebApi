@@ -60,8 +60,8 @@ namespace WebApp.Controllers
         {
             try
             {
-                /* EspecieDto newEspecieDto = _servicioEspecie.Add(especieDto);
-                 TempData["Exito"] = "La especie fue creada correctamente";*/
+                 EspecieDto newEspecieDto = _servicioEspecie.Add(especieDto);
+                 TempData["Exito"] = "La especie fue creada correctamente";
              }
              catch (ElementoNoValidoException e)
              {
@@ -69,8 +69,8 @@ namespace WebApp.Controllers
              }
 
              return RedirectToAction("EspecieMain");
-         }*/
-         //A partir de aca es todo para LISTAR-CONSULTAR
+         }
+         //A partir de aca es todo para LISTAR-CONSULTAR*/
          public IActionResult ListaEspecie()
          {
              try
@@ -108,9 +108,9 @@ namespace WebApp.Controllers
         {
             try
             {
-                /*IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetEspeciesEnPeligroDeExtincion();
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetEspeciesEnPeligroDeExtincion();
                 ViewBag.Especies = especieDtos.Count() == 0 ? null : especieDtos;
-                ViewBag.Ecosistemas = null;*/
+                ViewBag.Ecosistemas = null;
             }
             catch (ElementoNoValidoException e)
             {
@@ -161,7 +161,7 @@ namespace WebApp.Controllers
                 //
                 /*EspecieDto especie = _servicioEspecie.GetOneByNombreCientifico(EsNombreCientifico);
                 especie.Foto = fileNameModificado;
-                _servicioEspecie.Update(EsNombreCientifico, especie);*/
+                _servicioEspecie.Update(EsNombreCientifico, especie);
 
             }
 
@@ -194,9 +194,9 @@ namespace WebApp.Controllers
         {
             try
             {
-                /*IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByNombreEcosistema(filtroNombre);
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByNombreEcosistema(filtroNombre);
                 ViewBag.Especies = especieDtos.Count() == 0 ? null : especieDtos;
-                ViewBag.Ecosistemas = null;*/
+                ViewBag.Ecosistemas = null;
             }
             catch (ElementoNoValidoException e)
             {
@@ -238,13 +238,13 @@ namespace WebApp.Controllers
             return View("AsignarEspecieAEcosistema");
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult CrearEcosistemaEspecie(EcosistemaEspecie ecosistemaEspecie)
         {
             try
             {
-               /* EcosistemaEspecie newEcosistemaEspecie = _servicioEcosistemaEspecie.AddEcosistemaEspecie(ecosistemaEspecie.EsNombreCientifico, ecosistemaEspecie.EcNombre);
-                TempData["Exito"] = "La Especie fue asignada correctamente";*/
+                EcosistemaEspecie newEcosistemaEspecie = _servicioEcosistemaEspecie.AddEcosistemaEspecie(ecosistemaEspecie.EsNombreCientifico, ecosistemaEspecie.EcNombre);
+                TempData["Exito"] = "La Especie fue asignada correctamente";
             }
             catch (ElementoNoValidoException ex)
             {

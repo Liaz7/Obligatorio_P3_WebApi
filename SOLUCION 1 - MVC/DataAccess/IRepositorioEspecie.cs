@@ -9,6 +9,8 @@ public interface IRepositorioEspecie : IRepositorio<Especie>
 
     IEnumerable<Especie> GetAll();
 
+    IEnumerable<Especie> GetByNombreEcosistema(string ecNombre);
+
     IEnumerable<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo);
 
 }

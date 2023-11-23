@@ -42,7 +42,7 @@ namespace Servicios
         {
            // usuarioDto.Validar();
             Usuario usuario = new Usuario(usuarioDto);
-            UsuarioDto newUsuarioDto = new UsuarioDto(newUsuario);
+            UsuarioDto newUsuarioDto = new UsuarioDto(usuario);
             return newUsuarioDto;
         }
 
