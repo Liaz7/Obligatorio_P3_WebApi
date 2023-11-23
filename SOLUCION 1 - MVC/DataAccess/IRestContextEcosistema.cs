@@ -10,6 +10,6 @@ namespace DataAccess
 {
     public interface IRestContextEcosistema
     {
-        Task<EcosistemaDto> Add(EcosistemaDto entity);
+        Task<Ecosistema> Add(Ecosistema entity);
     }
 }

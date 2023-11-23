@@ -1,4 +1,5 @@
 ﻿using Dominio.Entidades;
+using Dominio.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,10 @@ namespace DataAccess
             _restContext = restContext;
         }
 
+        public Ecosistema Add(Ecosistema entity)
+        {
+            return _restContext.Add(entity).GetAwaiter().GetResult();
+        }
 
 
         /*public Ecosistema GetByEcosisitema(Ecosistema eco)

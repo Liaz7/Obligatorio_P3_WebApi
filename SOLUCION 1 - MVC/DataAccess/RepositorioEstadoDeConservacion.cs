@@ -10,18 +10,27 @@ namespace DataAccess
 {
     public class RepositorioEstadoDeConservacion : Repositorio<EstadoDeConservacion>, IRepositorioEstadoDeConservacion
     {
-        public RepositorioEstadoDeConservacion(DbContext dbContext)
+        private IRestContext<EstadoDeConservacion> _restContext;
+
+        public RepositorioEstadoDeConservacion(IRestContext<EstadoDeConservacion> restContext)
         {
-            Context = dbContext;
+            _restContext = restContext;
         }
         public IEnumerable<EstadoDeConservacion> GetAll()
         {
-            return Context.Set<EstadoDeConservacion>().ToList();
+            String filters = "/listarEstados";
+            return _restContext.GetAll(filters).GetAwaiter().GetResult();
         }
 
-        public EstadoDeConservacion GetByNombre(string nombre)
+        public IEnumerable<EstadoDeConservacion> GetById(string consId)
         {
-            return Context.Set<EstadoDeConservacion>().FirstOrDefault(estado => estado.ConsId == nombre);
+            String filters = "/listarEstados?consId="; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+
+            string nombreCientificoEscapado = Uri.EscapeDataString(consId);
+
+            filters = filters + nombreCientificoEscapado;
+
+            return _restContext.GetAll(filters).GetAwaiter().GetResult();
         }
     }
 }

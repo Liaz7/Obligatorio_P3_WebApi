@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public interface IRepositorioEcosistema : IRepositorio<Ecosistema>
+    public interface IRepositorioEcosistema
     {
+
+        Ecosistema Add(Ecosistema entity);
         /*
         Ecosistema GetByEcosisitema(Ecosistema eco);
 

@@ -11,6 +11,6 @@ namespace DataAccess
     {
         IEnumerable<EstadoDeConservacion> GetAll();
 
-        EstadoDeConservacion GetByNombre(string nombre);
+        IEnumerable<EstadoDeConservacion> GetById(string consId);
     }
 }

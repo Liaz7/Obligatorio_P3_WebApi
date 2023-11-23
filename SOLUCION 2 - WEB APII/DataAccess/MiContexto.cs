@@ -32,7 +32,7 @@ namespace WebApp
 
             modelBuilder.Entity<Especie>().Ignore(ec => ec.Foto).Ignore(ec => ec.AmenazasIds).Ignore(ec => ec.EcosistemasIdsTe).HasKey(e => e.EsNombreCientifico);
 
-            modelBuilder.Entity<Pais>().Ignore(p => p.EcosistemasIdsPais).HasKey(p => p.EcIsoPais);
+            modelBuilder.Entity<Pais>().Ignore(p => p.EcosistemasIdsPais).HasKey(p => p.PaisIso);
 
             modelBuilder.Entity<EstadoDeConservacion>().HasKey(edc => edc.ConsId);
 

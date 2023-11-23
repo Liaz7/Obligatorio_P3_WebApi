@@ -24,7 +24,7 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
 
     public IEnumerable<Especie> GetAll()
     {
-        String filters = ""; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+        String filters = "/listarEspecies"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
         return _restContext.GetAll(filters).GetAwaiter().GetResult();
     }
     /*

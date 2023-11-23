@@ -18,15 +18,17 @@ namespace Servicios
         private IRepositorioEcosistemaEspecie _repositorioEcosistemaEspecie;
         private IRepositorioEcosistemaAmenaza _repositorioEcosistemaAmenaza;
         private IRepositorioUbicacionGeografica _repositorioUbicacionGeografica;
+        private IRepositorioEstadoDeConservacion _repositorioEstados;
 
 
-        public ServicioEcosistema(IRepositorioEcosistema repositorio, IRepositorioPais repositorioPais, IRepositorioEcosistemaEspecie repositorioEspecie, IRepositorioEcosistemaAmenaza repositorioEcosistemaAmenaza, IRepositorioUbicacionGeografica repositorioUbicacionGeografica)
+        public ServicioEcosistema(IRepositorioEcosistema repositorio, IRepositorioPais repositorioPais, IRepositorioEcosistemaEspecie repositorioEspecie, IRepositorioEcosistemaAmenaza repositorioEcosistemaAmenaza, IRepositorioUbicacionGeografica repositorioUbicacionGeografica, IRepositorioEstadoDeConservacion repositorioEstados)
         {
             _repositorio = repositorio;
             _repositorioPais = repositorioPais;
             _repositorioEcosistemaEspecie = repositorioEspecie;
             _repositorioEcosistemaAmenaza = repositorioEcosistemaAmenaza;
             _repositorioUbicacionGeografica = repositorioUbicacionGeografica;
+            _repositorioEstados = repositorioEstados;
         }
 
         private void ThrowExceptionIfNotFound(Ecosistema eco)
@@ -53,35 +55,45 @@ namespace Servicios
         {
             try {
                 Ecosistema ecosistema = new Ecosistema(ecosistemaDto);
+                List<EcosistemaAmenaza> ListaEcosistemaAmenazas = new List<EcosistemaAmenaza>();
+                List<EcosistemaEspecie> ListaEcosistenaEspecie = new List<EcosistemaEspecie>();
                 ecosistema.Validar();
 
-                /*_repositorioUbicacionGeografica.Add(ecosistemaDto.EcUbicacionGeografica);
-                _repositorioUbicacionGeografica.Save();
-
-                UbicacionGeografica ubicacionGeografica = _repositorioUbicacionGeografica.GetByLatitudYLongitud(ecosistema.EcUbicacionGeografica.Latitud, ecosistema.EcUbicacionGeografica.Longitud);
-                ecosistema.EcUbicacionGeograficaId = ubicacionGeografica.UbicacionGeograficaId;*/
-                Ecosistema newEcosistema = _repositorio.Add(ecosistema);
+                
 
 
-                /*foreach (int amenaza in ecosistemaDto.AmenazasIds)
+                foreach (int amenaza in ecosistemaDto.AmenazasIds)
                 {
-                    EcosistemaAmenaza ecosistemaAmenaza = new EcosistemaAmenaza(amenaza, ecosistemaDto.EcNombre);
-                    _repositorioEcosistemaAmenaza.Add(ecosistemaAmenaza);
+                    ListaEcosistemaAmenazas.Add(new EcosistemaAmenaza(amenaza, ecosistemaDto.EcNombre));
                 }
 
                 foreach (string especie in ecosistemaDto.EspecieIds)
                 {
-                    EcosistemaEspecie ecosistemaEspecie = new EcosistemaEspecie(especie, ecosistemaDto.EcNombre, false);
-                    _repositorioEcosistemaEspecie.Add(ecosistemaEspecie);
-                }*/
+                    ListaEcosistenaEspecie.Add(new EcosistemaEspecie(especie, ecosistemaDto.EcNombre, false));
+                }
 
+                ecosistema.EcosistemaAmenaza = ListaEcosistemaAmenazas;
+                ecosistema.EcosistemaEspecie = ListaEcosistenaEspecie;
+                IEnumerable<EstadoDeConservacion> estados = _repositorioEstados.GetById(ecosistema.EstadoDeConservacionId);
+                foreach (EstadoDeConservacion estado in estados)
+                {
+                    if (estado.ConsId == ecosistema.EstadoDeConservacionId)
+                    {
+                        ecosistema.EstadoDeConservacion = estado;
+                    }
+                }
 
+                IEnumerable<Pais> paises = _repositorioPais.GetByAlias(ecosistema.PaisId);
+                foreach (Pais pais in paises)
+                {
+                    if (pais.PaisIso == ecosistema.PaisId)
+                    {
+                        ecosistema.Pais = pais;
+                    }
+                }
+
+                Ecosistema newEcosistema = _repositorio.Add(ecosistema);
                 EcosistemaDto newEcosistemaDto = new EcosistemaDto(newEcosistema);
-
-                /*_repositorioEcosistemaAmenaza.Save();
-                _repositorioEcosistemaEspecie.Save();*/
-                _repositorio.Save();
-
                 return newEcosistemaDto;
             }
             catch(Exception ex){

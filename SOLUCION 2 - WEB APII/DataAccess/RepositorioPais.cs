@@ -27,15 +27,13 @@ namespace DataAccess
 
         public IEnumerable<Pais> GetByAlias(string pais)
         {
-            return Context.Set<Pais>().Where(usuario => usuario.EcIsoPais.Contains(pais));
+            return Context.Set<Pais>().Where(usuario => usuario.PaisIso.Contains(pais));
         }
 
         public Pais GetByNombre(string pais)
         {
-            return Context.Set<Pais>().FirstOrDefault(eo => eo.EcIsoPais == pais);
+            return Context.Set<Pais>().FirstOrDefault(eo => eo.PaisIso == pais);
         }
-
-        
 
         public void Remove(Pais entity)
         {

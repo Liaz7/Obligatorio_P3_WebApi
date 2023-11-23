@@ -24,7 +24,18 @@ namespace DataAccess
 
         public IEnumerable<Pais> GetAll()
         {
-            String filters = ""; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+            String filters = "/listarPaises";
+            return _restContext.GetAll(filters).GetAwaiter().GetResult();
+        }
+
+        public IEnumerable<Pais> GetByAlias(string alias)
+        {
+            String filters = "/listarPaises?paisIso="; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+
+            string nombreCientificoEscapado = Uri.EscapeDataString(alias);
+
+            filters = filters + nombreCientificoEscapado;
+
             return _restContext.GetAll(filters).GetAwaiter().GetResult();
         }
 

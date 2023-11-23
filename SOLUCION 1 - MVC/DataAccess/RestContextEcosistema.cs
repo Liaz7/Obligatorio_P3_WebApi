@@ -1,4 +1,5 @@
 ﻿using Dominio.Dto;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace DataAccess
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<EcosistemaDto> Add(EcosistemaDto entity)
+        public async Task<Ecosistema> Add(Ecosistema entity)
         {
                 // Método para agregar un nuevo elemento a la API.
 
@@ -32,7 +33,9 @@ namespace DataAccess
                 StringContent content = new StringContent(entityJson, System.Text.Encoding.UTF8, "application/json");
                 // Crea un contenido de tipo StringContent con el JSON serializado.
 
-                HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
+                string newapiUrl = apiUrl + "/registrarEcosistemas";
+
+                HttpResponseMessage response = await httpClient.PostAsync(newapiUrl, content);
                 // Realiza una solicitud POST a la URL de la API con el contenido JSON y espera la respuesta.
 
                 string errorMessage = await response.Content.ReadAsStringAsync();
@@ -51,7 +54,7 @@ namespace DataAccess
                 };
                 // Configura opciones para la deserialización JSON.
 
-                var createdEntity = JsonSerializer.Deserialize<EcosistemaDto>(responseBody, options);
+                var createdEntity = JsonSerializer.Deserialize<Ecosistema>(responseBody, options);
                 // Realiza la deserialización del cuerpo de la respuesta en un objeto del tipo T.
 
                 return createdEntity;

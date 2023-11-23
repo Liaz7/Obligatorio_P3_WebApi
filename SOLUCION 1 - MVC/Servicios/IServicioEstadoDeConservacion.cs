@@ -11,6 +11,6 @@ namespace Servicios
     public interface IServicioEstadoDeConservacion
     {
         IEnumerable<EstadoDeConservacionDto> GetAll();
-        public EstadoDeConservacionDto GetByNombre(string nombre);
+        /*public EstadoDeConservacionDto GetByNombre(string nombre);*/
     }
 }
