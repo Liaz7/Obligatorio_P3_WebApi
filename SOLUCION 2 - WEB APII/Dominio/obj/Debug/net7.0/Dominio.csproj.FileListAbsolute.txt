@@ -1,0 +1,14 @@
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\bin\Debug\net7.0\Dominio.deps.json
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\bin\Debug\net7.0\Dominio.runtimeconfig.json
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\bin\Debug\net7.0\Dominio.dll
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\bin\Debug\net7.0\Dominio.pdb
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.csproj.AssemblyReference.cache
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.AssemblyInfo.cs
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.dll
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\refint\Dominio.dll
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.pdb
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\Dominio.genruntimeconfig.cache
+C:\Users\Lucas\Desktop\OBLIGATORIO P3\SOLUCION 2 - WEB API\Dominio\obj\Debug\net7.0\ref\Dominio.dll

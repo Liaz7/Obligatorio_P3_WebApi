@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SOLUCION 2 - WEB API",
+    "\\SOLUCION 2 - WEB API\\Dominio",
+    "\\SOLUCION 2 - WEB API\\Servicios",
+    "\\SOLUCION 2 - WEB API\\WebApi",
+    "\\SOLUCION 2 - WEB API\\WebApi\\Controllers"
   ],
-  "SelectedNode": "\\Dominio.sln (SOLUCION 2 - WEB API\\Dominio\\Dominio.sln)",
+  "SelectedNode": "\\SOLUCION 2 - WEB API\\WebApi\\Controllers\\EspeciesController.cs",
   "PreviewInSolutionExplorer": false
 }
