@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.Dto;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,12 @@ namespace DataAccess
 {
     public interface IRepositorioUsuario : IRepositorio<Usuario>
     {
-        IEnumerable<Usuario> GetByAlias(string alias);
+       // IEnumerable<Usuario> GetByAlias(string alias);
 
         Usuario GetUsuarioByAlias(string alias);
 
-        Usuario GetById(int id);
+        public UsuarioDto Login(UsuarioDto loginDto);
+
+       // Usuario GetById(int id);
     }
 }

@@ -21,7 +21,7 @@ namespace WebApi.Controllers
             _service = service;
         }
 
-        [HttpPost("login")]      
+        [HttpPost]      
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Login([FromBody] UsuarioDto loginDto)
         {

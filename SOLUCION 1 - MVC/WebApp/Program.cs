@@ -5,6 +5,8 @@ using DataAccess;
 using Servicios;
 using Microsoft.EntityFrameworkCore;
 using Dominio.Entidades;
+using Microsoft.AspNetCore.Authentication;
+using System.Numerics;
 
 namespace WebApp
 {
@@ -19,7 +21,9 @@ namespace WebApp
                 options.UseSqlServer(builder.Configuration.GetConnectionString("StringConection"));
             });
 
-
+            builder.Services.AddScoped<IRestContext<Usuario>>(provider => new RestContext<Usuario>(builder.Configuration.GetConnectionString("UsuarioUrl")));
+            /*builder.Services.AddScoped<IRestContext<Planta>>(provider => new RestContext<Planta>(builder.Configuration.GetConnectionString("PlantaUrl")));*/
+           // builder.Services.AddScoped<IRestContextLogin>(provider => new RestContextLogin(builder.Configuration.GetConnectionString("UsuarioUrl")));
 
             builder.Services.AddScoped(typeof(IRepositorioEspecie), typeof(RepositorioEspecie));
 
