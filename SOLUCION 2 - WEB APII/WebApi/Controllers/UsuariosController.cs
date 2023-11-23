@@ -12,16 +12,13 @@ namespace WebApi.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-
-
-
         private IServicioUsuario _service;
         public UsuariosController(IServicioUsuario service)
         {
             _service = service;
         }
 
-        [HttpPost]      
+        [HttpPost("/api/Usuarios/login")]      
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Login([FromBody] UsuarioDto loginDto)
         {
@@ -40,7 +37,7 @@ namespace WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public IActionResult RegistrarUsuario([FromBody]UsuarioDto registerDto)
+        public IActionResult RegistrarUsuario([FromBody] UsuarioDto registerDto)
         {
             try
             {

@@ -1,4 +1,5 @@
 ﻿using Dominio.Dto;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace DataAccess
         Task<IEnumerable<T>> GetAllWoFilters();
         Task<T> GetById(int id);
         Task<T> GetByName(string name);
+
+        Task<Usuario> AddUsuario(Usuario entity);
         Task<T> Add(T entity);
         Task<bool> Update(int id, T entity);
         Task<bool> Remove(int id);

@@ -14,7 +14,6 @@ namespace Servicios
     public class ServicioUsuario : IServicioUsuario
     {
         private IRepositorioUsuario _repositorio;
-        private IRestContext<Usuario> _restContext;
 
         public ServicioUsuario(IRepositorioUsuario repositorio)
         {
@@ -42,6 +41,7 @@ namespace Servicios
         {
            // usuarioDto.Validar();
             Usuario usuario = new Usuario(usuarioDto);
+            _repositorio.Add(usuario);
             UsuarioDto newUsuarioDto = new UsuarioDto(usuario);
             return newUsuarioDto;
         }
