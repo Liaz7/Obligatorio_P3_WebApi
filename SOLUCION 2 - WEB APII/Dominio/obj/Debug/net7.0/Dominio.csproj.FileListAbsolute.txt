@@ -26,3 +26,17 @@ C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Do
 C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.pdb
 C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.genruntimeconfig.cache
 C:\Users\Lucas\Source\Repos\Liaz7\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\ref\Dominio.dll
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\bin\Debug\net7.0\Dominio.deps.json
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\bin\Debug\net7.0\Dominio.runtimeconfig.json
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\bin\Debug\net7.0\Dominio.dll
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\bin\Debug\net7.0\Dominio.pdb
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.csproj.AssemblyReference.cache
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.AssemblyInfo.cs
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.dll
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\refint\Dominio.dll
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.pdb
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\Dominio.genruntimeconfig.cache
+C:\Users\alejo_83dz8b8\Desktop\ORT\Programacion'3\OblP3\Obligatorio_P3_WebApi\SOLUCION 2 - WEB APII\Dominio\obj\Debug\net7.0\ref\Dominio.dll

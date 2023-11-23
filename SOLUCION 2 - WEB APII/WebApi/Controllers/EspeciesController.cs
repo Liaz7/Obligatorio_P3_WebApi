@@ -1,4 +1,5 @@
 ﻿using Dominio.Dto;
+using Dominio.Entidades;
 using Dominio.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Servicios;
@@ -46,6 +47,73 @@ namespace WebApi.Controllers
            
         }
 
+        [HttpGet("/api/especies/listarPorNombreCientifico")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult BuscarPorNombreCientifico(string filtroNombre)
+        {
+            try
+            {
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByNombreCientifico(filtroNombre);
+                return Ok(especieDtos);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("/api/especies/listarEspeciesEnUnRango")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult BuscarEnUnRango(decimal esPesoMinimo, decimal esPesoMaximo)
+        {
+            try
+            {
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByRango(esPesoMinimo, esPesoMaximo);
+                return Ok(especieDtos);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("/api/especies/listarEspeciesQueHabitanEcositema")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult EspeciesQueHabitanEseEcosistema(string nombreEcosistema)
+        {
+            try
+            {
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByNombreEcosistema(nombreEcosistema);
+                return Ok(especieDtos);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("/api/especies/registrarEcosistemaEspecie")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        public IActionResult CrearEcosistemaEspecie([FromBody] EcosistemaEspecie ecosistemaEspecie)
+        {
+            try
+            {
+                EcosistemaEspecie newEcosistemaEspecie = _servicioEcosistemaEspecie.AddEcosistemaEspecie(ecosistemaEspecie.EsNombreCientifico, ecosistemaEspecie.EcNombre);
+                return Ok(newEcosistemaEspecie);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+                return BadRequest(ex);
+            }
+
+            return RedirectToAction("AsignaEspecieAEcosistema");
+        }
+
         [HttpGet("/api/especies/listarEspecies")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -60,8 +128,7 @@ namespace WebApi.Controllers
             {
                 return NotFound(ex);
             }
-
-          
         }
+
     }
 }
