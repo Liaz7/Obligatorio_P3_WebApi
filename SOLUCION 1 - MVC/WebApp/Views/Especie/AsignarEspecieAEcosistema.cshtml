@@ -1,0 +1,53 @@
+﻿@model Dominio.Entidades.EcosistemaEspecie;
+
+@if (Context.Session.GetString("user") == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Accesso Denegado!
+    </div>
+}
+else
+{
+
+<div class="card-header">
+    <h1>Asignar Especie a Ecosistema</h1>
+</div>
+<br>
+
+
+@if (@ViewBag.Especies != null && @ViewBag.Ecosistemas != null)
+{
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (TempData["Exito"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            TempData["Exito"]
+        </div>
+    }
+
+    
+    <form action="~/Especie/CrearEcosistemaEspecie" method="post">
+        <div class="mb-3">
+            <div class="mb-3">
+                    <h1 class="display-3">Especies:</h1>
+                <select asp-for="EsNombreCientifico" class="form-control btn btn-secondary dropdown-toggle" asp-items="@ViewBag.Especies"></select>
+            </div>
+            <br>
+            <div class="mb-3">
+                <h1 class="display-3">Ecosistemas</h1>
+                <select asp-for="EcNombre" class="form-control btn btn-secondary dropdown-toggle" asp-items="@ViewBag.Ecosistemas"></select>
+            </div>
+            <br>
+            <br>
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon6">Asignar</button>
+        </div>
+    </form>
+
+}
+}

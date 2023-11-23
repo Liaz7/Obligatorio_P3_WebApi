@@ -1,0 +1,87 @@
+﻿@using Dominio.Dto
+@model Dominio.Dto.EcosistemaDto
+
+@{
+    ViewData["Title"] = "RegistroEcosistema";
+}
+
+@if (Context.Session.GetString("user") == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Accesso Denegado!
+    </div>
+}
+else
+{
+
+    @if (TempData["Exito"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["Exito"]
+        </div>
+
+        <div class="alert alert-light" role="alert">
+            Volver a
+            <a class="nav-link text-dark" asp-area="" asp-controller="Ecosistema" asp-action="RegistroEcosistema">Registrar Ecosistema</a>
+        </div>
+    }
+    else
+    {
+        
+   
+
+<div class="card-header">
+    <h1>Registro de Ecosistema</h1>
+</div>
+<br>
+<div class="container">
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @TempData["Error"]
+            </div>
+        }
+    <form action="~/Ecosistema/RegistrarEcosistema" method="post">
+
+        <div class="mb-3">
+            <input asp-for="EcNombre" type="text" class="form-control" placeholder="Nombre Ecosistema">
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="EcUbicacionGeografica.Latitud" type="number" class="form-control" id="EcUbicacionGeograficaLatitud" placeholder="Latitud">
+        </div>
+        <div class="mb-3">
+            <input asp-for="EcUbicacionGeografica.Longitud" type="number" class="form-control" id="EcUbicacionGeograficaLongitud" placeholder="Longitud">
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="EcArea" type="text" class="form-control" id="EcArea" placeholder="EcArea">
+        </div>
+        <div class="mb-3">
+            <textarea asp-for="EcCaracteristicas" class="form-control" id="EcCaracteristicas" rows="4" placeholder="Caracteristicas"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <select asp-for="PaisId" class="form-control" asp-items="@ViewBag.Paises"></select>
+        </div>
+
+
+        <div class="mb-3">
+            <select asp-for="EstadoDeConservacionId" class="form-control" asp-items="@ViewBag.Estados"></select>
+        </div>
+
+        <div class="mb-3">
+            <select asp-for="AmenazasIds" class="form-control" asp-items="@ViewBag.Amenazas"></select>
+        </div>
+
+        <div class="mb-3">
+
+            <select asp-for="EspecieIds" class="form-control" asp-items="@ViewBag.Especies"></select>
+        </div>
+
+        <input type="submit" class="btn btn-primary"/>
+    </form>
+
+</div>
+    }           
+}

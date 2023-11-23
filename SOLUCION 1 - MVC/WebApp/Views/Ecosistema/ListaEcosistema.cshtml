@@ -1,0 +1,94 @@
+﻿@using Dominio.Entidades;
+@using Dominio.Dto;
+
+@if (Context.Session.GetString("user") == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Accesso Denegado!
+    </div>
+}
+else
+{
+
+<div class="card-header">
+    <h1>Lista de Ecosistemas</h1>
+</div>
+
+@if (ViewBag.Ecosistemas == null)
+{
+        <div class="alert alert-danger" role="alert">
+            Internal Error.
+        </div>
+}
+else
+{
+    <div class="container mt-5">
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["Error"]
+                </div>
+            }
+
+            @if (TempData["Exito"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @TempData["Exito"]
+                </div>
+            }
+
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre Ecosistema</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>Caracteristicas</th>
+                    <th>Estado de conservacion</th>
+                    <th>Pais</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (EcosistemaDto e in ViewBag.Ecosistemas)
+                {
+                    <tr>
+                        <td>@e.EcNombre</td>
+                        <td>@e.EcUbicacionGeografica.Latitud</td>
+                        <td>@e.EcUbicacionGeografica.Longitud</td>
+                        <td>@e.EcCaracteristicas</td>
+                        <td>
+                            @switch (e.EstadoDeConservacionId)
+                            {
+                                case "1":
+                                    <text>Peligro</text>
+                                    break;
+                                case "2":
+                                    <text>Aceptable</text>
+                                    break;
+                                case "3":
+                                    <text>Óptimo</text>
+                                    break;
+                                default:
+                                    <text>Otro</text>
+                                    break;
+                            }
+                        </td>
+
+                        <td>@e.PaisId</td>
+                        <td>
+                            <form method="post" asp-controller="Ecosistema" asp-action="BorrarEcosistema" asp-route-ecNombre="@e.EcNombre">
+                                <button type="submit">Borrar Ecosistema</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+}
+
+}

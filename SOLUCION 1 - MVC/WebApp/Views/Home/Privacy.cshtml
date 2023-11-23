@@ -1,0 +1,6 @@
+﻿@if (Context.Session.GetString("user") == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Accesso Denegado!
+    </div>
+}

@@ -1,0 +1,87 @@
+﻿@using Dominio.Entidades;
+@using Dominio.Dto;
+@model Dominio.Dto.EspecieDto;
+
+@if (Context.Session.GetString("user") == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Accesso Denegado!
+    </div>
+}
+else
+{
+    
+
+
+<div class="card-header">
+    <h1>Registro de Especie</h1>
+</div>
+<br>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+
+@if (TempData["Exito"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Exito"]
+    </div>
+}
+
+<div class="container">
+    <form action="~/Especie/RegistrarEspecie" method="post">
+
+        <div class="mb-3">
+            <input asp-for="EsNombreCientifico" type="text" class="form-control" placeholder="Nombre Científico">
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="EsNombreVulgar" type="text" class="form-control" id="EsNombreVulgar" name="EsNombreVulgar" placeholder="Nombre Vulgar">
+        </div>
+
+        <div class="mb-3">
+            <textarea asp-for="EsDescripcion" class="form-control" id="EsDescripcion" name="EsDescripcion" rows="4" placeholder="Descripción"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="EsPesoMinimo" type="number" class="form-control" id="EsPesoMinimo" name="EsPesoMinimo" placeholder="Peso Mínimo">
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="EsPesoMaximo" type="number" class="form-control" id="EsPesoMaximo" name="EsPesoMaximo" placeholder="Peso Máximo">
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="EsLongitudMinima" type="number" class="form-control" id="EsLongitudMinima" name="EsLongitudMinima" placeholder="Longitud Mínima">
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="EsLongitudMaxima" type="number" class="form-control" id="EsLongitudMaxima" name="EsLongitudMaxima" placeholder="Longitud Máxima">
+        </div>
+
+        <div class="mb-3">
+            <select asp-for="EstadoDeConservacionId" class="form-control" asp-items="@ViewBag.Estados"></select>
+        </div>
+
+        <div class="mb-3">
+            <select asp-for="AmenazasIds" class="form-control" asp-items="@ViewBag.Amenazas"></select>
+        </div>
+
+        <div class="mb-3">
+            <select asp-for="EcosistemasIdsTe" class="form-control" asp-items="@ViewBag.Ecosistemas"></select>
+        </div>
+        <!--
+         <div>
+            <a asp-action="FotoEspecie">Subir Imagen :)</a>
+        </div>-->
+
+        <input type="submit" class="btn btn-primary"/>
+        
+    </form>
+</div>
+
+}

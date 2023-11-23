@@ -1,0 +1,21 @@
+﻿@if (Context.Session.GetString("user") == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Accesso Denegado!
+    </div>
+}
+else
+{
+    
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4 mb-3">Bienvenido a Ecosistemas Marinos</h1>
+            <p class="lead mb-4">Proporcionamos información detallada sobre la vida marina y los diferentes ecosistemas acuáticos.</p>
+            <p>Esta plataforma está diseñada para que los estudiantes, biólogos marinos, y aficionados a la naturaleza puedan aprender sobre la diversidad de especies, la importancia de los ecosistemas marinos y las amenazas a la conservación.</p>
+        </div>
+    </div>
+    </div>
+}

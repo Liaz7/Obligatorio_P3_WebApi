@@ -1,0 +1,140 @@
+@using Dominio.Entidades;
+@using Dominio.Dto;
+
+@if (Context.Session.GetString("user") == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Accesso Denegado!
+    </div>
+}
+else
+{
+
+
+<div class="card-header">
+    <h1>Lista de Especie</h1>
+</div>
+<br>
+
+<div class="filtro-container">
+     <form action="~/Especie/BuscarPorNombreCientifico" method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="filtroNombre" name="filtroNombre" placeholder="Nombre Científico:" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+        </div>
+     </form>
+
+    <form action="~/Especie/BuscarPorEspeciesEnPeligroDeExtincion" method="get">
+        <div class="input-group mb-3">
+            <button class="btn btn btn-dark" type="submit" id="button-addon3">Especies En Peligro De Extincion</button>
+        </div>
+     </form>
+
+     <form action="~/Especie/BuscarEnUnRango" method="get">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Rango:</span>
+            <input type="number" aria-label="Peso minimo:" name="presoMinimo" class="form-control" step="0.01" min="0.00">
+            <input type="number" aria-label="Peso maximo:" name="pesoMaximo" class="form-control" step="0.01" min="0.00">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon4">Buscar</button>
+        </div>
+    </form>
+
+    <form action="~/Especie/EspeciesQueHabitanEseEcosistema" method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="filtroNombre2" name="filtroNombre" placeholder="Nombre Ecosistema:" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon6">Buscar</button>
+        </div>
+    </form>
+
+    <form action="~/Especie/EcosistemasQueNoHabitanUnaEspecie" method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="filtroNombre4" name="filtroNombre" placeholder="Nombre Científico Especie:" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon8">Buscar</button>
+        </div>
+    </form>
+
+    <form action="~/Especie/ListaEspecie" method="get">
+        <div class="input-group mb-3">
+            <button class="btn btn btn-dark" type="submit" id="button-addon8">Limpiar Filtros</button>
+        </div>
+    </form>
+</div>
+
+@if (ViewBag.Especies == null && ViewBag.Ecosistemas == null)
+{
+    <div class="alert alert-warning" role="alert">
+        No se encontraron resultados
+    </div>
+}
+else
+{
+    @if (ViewBag.Especies != null)
+    {
+        <div class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre Científico</th>
+                        <th>Nombre Vulgar</th>
+                        <th>Descripción</th>
+                        <th>Peso Mínimo</th>
+                        <th>Peso Máximo</th>
+                        <th>Longitud Mínima</th>
+                        <th>Longitud Máxima</th>
+                        <th>Estado de Conservación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (EspecieDto e in ViewBag.Especies)
+                    {
+                        <tr>
+                            <td>@e.EsNombreCientifico</td>
+                            <td>@e.EsNombreVulgar</td>
+                            <td>@e.EsDescripcion</td>
+                            <td>@e.EsPesoMinimo</td>
+                            <td>@e.EsPesoMaximo</td>
+                            <td>@e.EsLongitudMinima</td>
+                            <td>@e.EsLongitudMaxima</td>
+                            <td>@e.EstadoDeConservacionId</td>
+                            <td><img src="~/imagenes/@e.Foto" alt="" height="300">
+                            <td><a href="/Especie/FotoEspecie?EsNombreCientifico=@e.EsNombreCientifico">Foto</a></td>
+                            <td><p>@e.EsNombreCientifico</p></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    @if (ViewBag.Ecosistemas != null)
+    {
+        <div class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Area</th>
+                        <th>Estado de Conservacion</th>
+                        <th>Caracteristicas</th>
+                        <th>Pais</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (EcosistemaDto e in ViewBag.Ecosistemas)
+                    {
+                        <tr>
+                            <td>@e.EcNombre</td>
+                            <td>@e.EcArea</td>
+                            <td>@e.EstadoDeConservacionId</td>
+                            <td>@e.EcCaracteristicas</td>
+                            <td>@e.PaisId</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+}
+
+}
