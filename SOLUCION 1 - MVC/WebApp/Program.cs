@@ -22,8 +22,9 @@ namespace WebApp
             });
 
             builder.Services.AddScoped<IRestContext<Usuario>>(provider => new RestContext<Usuario>(builder.Configuration.GetConnectionString("UsuarioUrl")));
+            builder.Services.AddScoped<IRestContext<Especie>>(provider => new RestContext<Especie>(builder.Configuration.GetConnectionString("EspecieUrl")));
             /*builder.Services.AddScoped<IRestContext<Planta>>(provider => new RestContext<Planta>(builder.Configuration.GetConnectionString("PlantaUrl")));*/
-           // builder.Services.AddScoped<IRestContextLogin>(provider => new RestContextLogin(builder.Configuration.GetConnectionString("UsuarioUrl")));
+            // builder.Services.AddScoped<IRestContextLogin>(provider => new RestContextLogin(builder.Configuration.GetConnectionString("UsuarioUrl")));
 
             builder.Services.AddScoped(typeof(IRepositorioEspecie), typeof(RepositorioEspecie));
 
@@ -83,6 +84,8 @@ namespace WebApp
             app.UseRouting();
 
             app.UseAuthorization();
+
+           // app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             app.UseSession();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Dominio.Dto;
 using Dominio.Entidades.Interfaces;
@@ -10,8 +11,11 @@ namespace Dominio.Entidades
 {
     public class Usuario : IValidable
     {
+        [JsonIgnore]
         public int UsId;
+        [JsonInclude]
         public string UsuarioAlias;
+        [JsonInclude]
         public string UsuarioContrasenia;
 
         public Usuario() { }

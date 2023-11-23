@@ -28,7 +28,9 @@ namespace WebApi.Controllers
         }
 
 
-        [HttpPost("/api/especies/registrarEspecies")]
+
+
+        [HttpPost("/api/especies/EnviarregistrarEspecies")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -146,6 +148,42 @@ namespace WebApi.Controllers
             }
 
             
+        }
+
+        [HttpGet("/api/especies/listarEspeciesPorNombreCientifico")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult BuscarPorNombreCientifico(string nombreCientifico)
+        {
+            try
+            {
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByNombreCientifico(nombreCientifico);
+                return Ok(especieDtos);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+                return NotFound(ex);
+            }
+
+
+        }
+
+        [HttpGet("/api/especies/listarEspeciesPorRango")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult BuscarPorRango(decimal pesoMinimo, decimal pesoMaximo)
+        {
+            try
+            {
+                IEnumerable<EspecieDto> especieDtos = _servicioEspecie.GetByRango(pesoMinimo, pesoMaximo);
+                return Ok(especieDtos);
+            }
+            catch (ElementoNoValidoException ex)
+            {
+                return NotFound(ex);
+            }
+
+
         }
 
         [HttpGet("/api/especies/listarEcosistemasEnLosQueNoHabitanUnaEspecie")]
