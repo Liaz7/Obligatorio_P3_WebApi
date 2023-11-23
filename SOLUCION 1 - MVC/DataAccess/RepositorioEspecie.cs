@@ -17,27 +17,33 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
     {
         _restContext = restContext;
     }
-   /* public IEnumerable<Especie> GetByNombreCientifico(string nombreCientifico)
+
+    public IEnumerable<Especie> GetByNombreCientifico(string nombreCientifico)
     {
-        return Context.Set<Especie>().Where(especie => especie.EsNombreCientifico.Contains(nombreCientifico)).ToList();
-    }*/
+        String filters = "/listarEspeciesPorNombreCientifico?nombreCientifico="; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+
+        string nombreCientificoEscapado = Uri.EscapeDataString(nombreCientifico);
+
+        filters = filters + nombreCientificoEscapado;
+
+        return _restContext.GetAll(filters).GetAwaiter().GetResult();
+    }
 
     public IEnumerable<Especie> GetAll()
     {
         String filters = "/listarEspecies"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
         return _restContext.GetAll(filters).GetAwaiter().GetResult();
     }
+    
     /*
-    public ICollection<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo)
+    public IEnumerable<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo)
     {
-        ICollection<Especie> especiesEnRango = Context.Set<Especie>()
-        .Where(especie => especie.EsPesoMinimo >= pesoMinimo && especie.EsPesoMaximo <= pesoMaximo)
-        .ToList();
-
-        return especiesEnRango;
+        String filters = "/listarEspeciesPorRango?pesoMinimo="; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+        filters = filters + pesoMinimo + "&pesoMaximo=" + pesoMaximo;
+        return _restContext.GetAll(filters).GetAwaiter().GetResult();
     }
 
-    public Especie GetOneByNombreCientifico(string nombreCientifico)
+    /*public Especie GetOneByNombreCientifico(string nombreCientifico)
     {
         return Context.Set<Especie>().FirstOrDefault(especie => especie.EsNombreCientifico == nombreCientifico);
     }

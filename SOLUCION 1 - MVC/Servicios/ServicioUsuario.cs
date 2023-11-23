@@ -40,9 +40,8 @@ namespace Servicios
 
         public UsuarioDto Add(UsuarioDto usuarioDto)
         {
-            usuarioDto.Validar();
+           // usuarioDto.Validar();
             Usuario usuario = new Usuario(usuarioDto);
-            Usuario newUsuario = _repositorio.Add(usuario);
             UsuarioDto newUsuarioDto = new UsuarioDto(newUsuario);
             return newUsuarioDto;
         }

@@ -5,17 +5,10 @@ using System;
 
 public interface IRepositorioEspecie : IRepositorio<Especie>
 {
-    /*IEnumerable<Especie> GetByNombreCientifico(string nombreCientifico);
-
-    IEnumerable<Especie> GetByNombreEcosistema(string ecNombre);*/
+    IEnumerable<Especie> GetByNombreCientifico(string nombreCientifico);
 
     IEnumerable<Especie> GetAll();
 
-    /*Especie GetOneByNombreCientifico(string nombreCientifico);
-    
-    Especie GetByNombre(string nombre);
+    IEnumerable<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo);
 
-    ICollection<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo);
-
-    IEnumerable<Especie> GetEspeciesEnPeligroDeExtincion();*/
 }

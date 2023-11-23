@@ -28,6 +28,7 @@ namespace WebApp
             builder.Services.AddScoped<IRestContext<Especie>>(provider => new RestContext<Especie>(builder.Configuration.GetConnectionString("EcosistemaUrl")));
             builder.Services.AddScoped<IRestContext<Pais>>(provider => new RestContext<Pais>(builder.Configuration.GetConnectionString("EcosistemaUrl")));
             builder.Services.AddScoped<IRestContext<EstadoDeConservacion>>(provider => new RestContext<EstadoDeConservacion>(builder.Configuration.GetConnectionString("EcosistemaUrl")));
+            builder.Services.AddScoped<IRestContext<Especie>>(provider => new RestContext<Especie>(builder.Configuration.GetConnectionString("EspecieUrl")));
             /*builder.Services.AddScoped<IRestContext<Planta>>(provider => new RestContext<Planta>(builder.Configuration.GetConnectionString("PlantaUrl")));*/
             // builder.Services.AddScoped<IRestContextLogin>(provider => new RestContextLogin(builder.Configuration.GetConnectionString("UsuarioUrl")));
 
@@ -89,6 +90,8 @@ namespace WebApp
             app.UseRouting();
 
             app.UseAuthorization();
+
+           // app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             app.UseSession();
 

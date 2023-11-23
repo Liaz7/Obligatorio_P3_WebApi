@@ -65,6 +65,36 @@ namespace DataAccess
             // Devuelve la lista de entidades deserializadas.
         }
 
+        public async Task<IEnumerable<T>> GetAllWoFilters()
+        {
+            // Método para obtener todos los elementos de la API con opciones de filtros.
+
+            HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
+            // Realiza una solicitud GET a la URL de la API con filtros opcionales y espera la respuesta.
+
+            string errorMessage = await response.Content.ReadAsStringAsync();
+            // Lee el mensaje de error (si lo hay) de la respuesta HTTP.
+
+            HttpErrorHandler.ThrowExceptionFromHttpStatusCodeAsync(response, errorMessage);
+            // Llama a un manejador de errores personalizado para verificar el código de estado HTTP y lanzar excepciones si es necesario.
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            // Lee el cuerpo de la respuesta HTTP.
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+            // Configura opciones para la deserialización JSON, como el formato de nombres en camelCase y la escritura en formato JSON con sangría para una mejor legibilidad.
+
+            var entities = JsonSerializer.Deserialize<List<T>>(responseBody, options);
+            // Realiza la deserialización del cuerpo de la respuesta en una lista de objetos del tipo T.
+
+            return entities;
+            // Devuelve la lista de entidades deserializadas.
+        }
+
         public async Task<T> GetById(int id)
         {
             // Método para obtener un elemento de la API por su ID.
@@ -128,6 +158,8 @@ namespace DataAccess
         public async Task<T> Add(T entity)
         {
             // Método para agregar un nuevo elemento a la API.
+
+            
 
             string entityJson = JsonSerializer.Serialize(entity);
             // Serializa el objeto entity a formato JSON.

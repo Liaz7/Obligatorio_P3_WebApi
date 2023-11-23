@@ -55,7 +55,7 @@ namespace WebApp.Controllers
             return valor;
         }
 
-        [HttpPost]
+       /* [HttpPost]
         public IActionResult RegistrarEspecie(EspecieDto especieDto)
         {
             try
@@ -69,7 +69,7 @@ namespace WebApp.Controllers
              }
 
              return RedirectToAction("EspecieMain");
-         }
+         }*/
          //A partir de aca es todo para LISTAR-CONSULTAR
          public IActionResult ListaEspecie()
          {
@@ -102,7 +102,7 @@ namespace WebApp.Controllers
 
             return View("ListaEspecie");
         }
-
+        /*
         [HttpGet]
         public IActionResult BuscarPorEspeciesEnPeligroDeExtincion()
         {
@@ -124,10 +124,10 @@ namespace WebApp.Controllers
         public ActionResult FotoEspecie(string EsNombreCientifico)
         {
             return View(new MyModel());
-        }
+        }*/
 
 
-        [HttpPost]
+       /* [HttpPost]
         public ActionResult FotoDEspecie(string EsNombreCientifico, MyModel model)
         {
             string nombreCientifico = ViewBag.NombreCientifico;
@@ -169,7 +169,7 @@ namespace WebApp.Controllers
             return RedirectToAction("EspecieMain");
 
             // redirigir a otra acción o volver a la vista
-        }
+        }*/
 
 
         [HttpGet]
@@ -189,7 +189,7 @@ namespace WebApp.Controllers
             return View("ListaEspecie");
         }
 
-        [HttpGet]
+        /*  [HttpGet]
         public IActionResult EspeciesQueHabitanEseEcosistema(string filtroNombre)
         {
             try
@@ -204,7 +204,7 @@ namespace WebApp.Controllers
             }
 
             return View("ListaEspecie");
-        }
+        }*/
 
         [HttpGet]
         public IActionResult EcosistemasQueNoHabitanUnaEspecie(string filtroNombre)
@@ -252,6 +252,6 @@ namespace WebApp.Controllers
             }
 
             return RedirectToAction("AsignaEspecieAEcosistema");
-        }
+        }*/
     }
 }

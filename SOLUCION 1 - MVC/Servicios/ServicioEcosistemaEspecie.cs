@@ -22,7 +22,8 @@ namespace Servicios
             _repositorioEspecie = repositorioEspecie;
             _repositorioEcosistemaEspecie = repositorioEcosistemaEspecie;
         }
-        /*public EcosistemaEspecie AddEcosistemaEspecie(string nombreEspecie, string nombreEcosistema)
+        
+       /* public EcosistemaEspecie AddEcosistemaEspecie(string nombreEspecie, string nombreEcosistema)
         {
             try
             {

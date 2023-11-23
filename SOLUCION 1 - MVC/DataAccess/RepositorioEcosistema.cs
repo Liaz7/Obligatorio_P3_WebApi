@@ -15,7 +15,6 @@ namespace DataAccess
 
         public RepositorioEcosistema(IRestContextEcosistema restContext)
         {
-            //_repositoryTipoRest = new RestContextLogin("https://localhost:7111/api/especies");
             _restContext = restContext;
         }
 
@@ -23,16 +22,22 @@ namespace DataAccess
         {
             return _restContext.Add(entity).GetAwaiter().GetResult();
         }
-
-
-        /*public Ecosistema GetByEcosisitema(Ecosistema eco)
-        {
-            return Context.Set<Ecosistema>().FirstOrDefault(ecosistema => ecosistema.EcNombre == eco.EcNombre);
-        }
-
+        
         public IEnumerable<Ecosistema> GetAll()
         {
-            return Context.Set<Ecosistema>().ToList();
+            String filters = "/listarEcosistemas"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+
+            
+
+            return _restContext.GetAll(filters).GetAwaiter().GetResult();
+        }
+
+
+        /*
+        
+        public Ecosistema GetByEcosisitema(Ecosistema eco)
+        {
+            return Context.Set<Ecosistema>().FirstOrDefault(ecosistema => ecosistema.EcNombre == eco.EcNombre);
         }
 
         public void EliminarEnCascada(Ecosistema  ecosistema)
@@ -44,7 +49,6 @@ namespace DataAccess
                 Context.Remove(ecosistema);
             }
                
-
         }
 
         public Ecosistema GetById(int id)
