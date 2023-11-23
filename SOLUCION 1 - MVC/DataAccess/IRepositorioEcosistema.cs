@@ -12,6 +12,8 @@ namespace DataAccess
     {
 
         Ecosistema Add(Ecosistema entity);
+
+        IEnumerable<Ecosistema> GetAll();
         /*
         Ecosistema GetByEcosisitema(Ecosistema eco);
 

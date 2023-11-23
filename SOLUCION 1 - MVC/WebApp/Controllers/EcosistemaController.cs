@@ -82,8 +82,8 @@ namespace WebApp.Controllers
                 {
                     e.EcUbicacionGeografica = new UbicacionGeografica(_servicioUbicacionGeografica.GetById(e.EcUbicacionGeograficaId));
 
-                }
-                ViewBag.Ecosistemas = _servicioEcosistema.GetAll();*/
+                }*/
+                ViewBag.Ecosistemas = _servicioEcosistema.GetAll();
 
             }
             catch (ElementoNoValidoException e)

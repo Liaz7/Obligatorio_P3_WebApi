@@ -101,11 +101,11 @@ namespace Servicios
             }
         }
 
-        /*public IEnumerable<EcosistemaDto> GetAll()
+        public IEnumerable<EcosistemaDto> GetAll()
         {
             return ConvertirListaAListaDto(_repositorio.GetAll());
         }
-
+        /*
         public IEnumerable<EcosistemaDto> GetByNombreEspecie(string nombre)
         {
             return ConvertirListaAListaDto(_repositorio.GetByNombreEspecie(nombre));
@@ -142,5 +142,5 @@ namespace Servicios
             _repositorio.Update(eco);
             _repositorio.Save();
         }*/
-            }
+    }
 }

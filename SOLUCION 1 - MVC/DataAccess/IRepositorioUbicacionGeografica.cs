@@ -11,6 +11,6 @@ namespace DataAccess
     {
         public UbicacionGeografica GetById(int id);
 
-        public UbicacionGeografica GetByLatitudYLongitud(decimal latitud, decimal longitud);
+        //public UbicacionGeografica GetByLatitudYLongitud(decimal latitud, decimal longitud);
     }
 }

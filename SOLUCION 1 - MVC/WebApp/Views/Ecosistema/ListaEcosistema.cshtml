@@ -43,10 +43,7 @@ else
             <thead>
                 <tr>
                     <th>Nombre Ecosistema</th>
-                    <th>Latitud</th>
-                    <th>Longitud</th>
                     <th>Caracteristicas</th>
-                    <th>Estado de conservacion</th>
                     <th>Pais</th>
                 </tr>
             </thead>
@@ -54,28 +51,8 @@ else
                 @foreach (EcosistemaDto e in ViewBag.Ecosistemas)
                 {
                     <tr>
-                        <td>@e.EcNombre</td>
-                        <td>@e.EcUbicacionGeografica.Latitud</td>
-                        <td>@e.EcUbicacionGeografica.Longitud</td>
+                        <td>@e.EcNombre</td
                         <td>@e.EcCaracteristicas</td>
-                        <td>
-                            @switch (e.EstadoDeConservacionId)
-                            {
-                                case "1":
-                                    <text>Peligro</text>
-                                    break;
-                                case "2":
-                                    <text>Aceptable</text>
-                                    break;
-                                case "3":
-                                    <text>Óptimo</text>
-                                    break;
-                                default:
-                                    <text>Otro</text>
-                                    break;
-                            }
-                        </td>
-
                         <td>@e.PaisId</td>
                         <td>
                             <form method="post" asp-controller="Ecosistema" asp-action="BorrarEcosistema" asp-route-ecNombre="@e.EcNombre">
