@@ -10,11 +10,17 @@ namespace DataAccess
 {
     public class RepositorioEcosistema : Repositorio<Ecosistema>, IRepositorioEcosistema
     {
-        public RepositorioEcosistema(DbContext dbContext)
+        private IRestContextEcosistema _restContext;
+
+        public RepositorioEcosistema(IRestContextEcosistema restContext)
         {
-            Context = dbContext;
+            //_repositoryTipoRest = new RestContextLogin("https://localhost:7111/api/especies");
+            _restContext = restContext;
         }
-        public Ecosistema GetByEcosisitema(Ecosistema eco)
+
+
+
+        /*public Ecosistema GetByEcosisitema(Ecosistema eco)
         {
             return Context.Set<Ecosistema>().FirstOrDefault(ecosistema => ecosistema.EcNombre == eco.EcNombre);
         }
@@ -44,9 +50,9 @@ namespace DataAccess
         public Ecosistema GetByNombre(string nombre)
         {
             return Context.Set<Ecosistema>().FirstOrDefault(eco => eco.EcNombre == nombre);
-        }
+        }*/
 
-        public IEnumerable<Ecosistema> GetByNombreEspecie(string ecNombre)
+        /*public IEnumerable<Ecosistema> GetByNombreEspecie(string ecNombre)
         {
             return Context.Set<Ecosistema>()
                 .Where(e => Context.Set<Especie>()
@@ -62,6 +68,6 @@ namespace DataAccess
                             .Select(ee => ee.EcNombre)
                             .Contains(ea.EcNombre)))
                 .ToList();
-        }
+        }*/
     }
 }

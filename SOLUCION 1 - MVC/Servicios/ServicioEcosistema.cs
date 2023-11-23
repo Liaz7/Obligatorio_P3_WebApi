@@ -55,15 +55,15 @@ namespace Servicios
                 Ecosistema ecosistema = new Ecosistema(ecosistemaDto);
                 ecosistema.Validar();
 
-                _repositorioUbicacionGeografica.Add(ecosistemaDto.EcUbicacionGeografica);
+                /*_repositorioUbicacionGeografica.Add(ecosistemaDto.EcUbicacionGeografica);
                 _repositorioUbicacionGeografica.Save();
 
                 UbicacionGeografica ubicacionGeografica = _repositorioUbicacionGeografica.GetByLatitudYLongitud(ecosistema.EcUbicacionGeografica.Latitud, ecosistema.EcUbicacionGeografica.Longitud);
-                ecosistema.EcUbicacionGeograficaId = ubicacionGeografica.UbicacionGeograficaId;
+                ecosistema.EcUbicacionGeograficaId = ubicacionGeografica.UbicacionGeograficaId;*/
                 Ecosistema newEcosistema = _repositorio.Add(ecosistema);
 
 
-                foreach (int amenaza in ecosistemaDto.AmenazasIds)
+                /*foreach (int amenaza in ecosistemaDto.AmenazasIds)
                 {
                     EcosistemaAmenaza ecosistemaAmenaza = new EcosistemaAmenaza(amenaza, ecosistemaDto.EcNombre);
                     _repositorioEcosistemaAmenaza.Add(ecosistemaAmenaza);
@@ -73,13 +73,13 @@ namespace Servicios
                 {
                     EcosistemaEspecie ecosistemaEspecie = new EcosistemaEspecie(especie, ecosistemaDto.EcNombre, false);
                     _repositorioEcosistemaEspecie.Add(ecosistemaEspecie);
-                }
+                }*/
 
 
                 EcosistemaDto newEcosistemaDto = new EcosistemaDto(newEcosistema);
 
-                _repositorioEcosistemaAmenaza.Save();
-                _repositorioEcosistemaEspecie.Save();
+                /*_repositorioEcosistemaAmenaza.Save();
+                _repositorioEcosistemaEspecie.Save();*/
                 _repositorio.Save();
 
                 return newEcosistemaDto;
@@ -89,7 +89,7 @@ namespace Servicios
             }
         }
 
-        public IEnumerable<EcosistemaDto> GetAll()
+        /*public IEnumerable<EcosistemaDto> GetAll()
         {
             return ConvertirListaAListaDto(_repositorio.GetAll());
         }
@@ -129,6 +129,6 @@ namespace Servicios
             eco.CopyEcosistema(ecosistemaDto);
             _repositorio.Update(eco);
             _repositorio.Save();
-        }
-    }
+        }*/
+            }
 }

@@ -10,6 +10,6 @@ namespace Servicios
 {
     public interface IServicioEcosistemaEspecie
     {
-        EcosistemaEspecie AddEcosistemaEspecie(string nombreEcosistema, string nombreEspecie);
+       /* EcosistemaEspecie AddEcosistemaEspecie(string nombreEcosistema, string nombreEspecie);*/
     }
 }

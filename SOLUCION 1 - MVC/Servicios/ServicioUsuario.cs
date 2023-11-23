@@ -25,8 +25,6 @@ namespace Servicios
         public UsuarioDto Login(UsuarioDto usuarioDto)
 
         {
-
-
             try
             {
                 UsuarioDto usuario = _repositorio.Login(usuarioDto);
@@ -45,7 +43,6 @@ namespace Servicios
             usuarioDto.Validar();
             Usuario usuario = new Usuario(usuarioDto);
             Usuario newUsuario = _repositorio.Add(usuario);
-            _repositorio.Save();
             UsuarioDto newUsuarioDto = new UsuarioDto(newUsuario);
             return newUsuarioDto;
         }

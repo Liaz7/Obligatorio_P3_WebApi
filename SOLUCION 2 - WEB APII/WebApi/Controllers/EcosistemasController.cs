@@ -42,7 +42,7 @@ namespace WebApi.Controllers
            
         }
 
-       [HttpDelete("/api/ecosistemas/borrarEcosistemas")]
+        [HttpDelete("/api/ecosistemas/borrarEcosistemas")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult BorrarEcosistema(EcosistemaDto ecosistemaDto)

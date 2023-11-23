@@ -1,4 +1,5 @@
-﻿using Dominio.Dto;
+﻿using DataAccess;
+using Dominio.Dto;
 using Dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,20 +11,23 @@ using System.Threading.Tasks;
 
 public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
 {
-    public RepositorioEspecie(DbContext dbContext)
+    private IRestContext<Especie> _restContext;
+
+    public RepositorioEspecie(IRestContext<Especie> restContext)
     {
-        Context = dbContext;
+        _restContext = restContext;
     }
-    public IEnumerable<Especie> GetByNombreCientifico(string nombreCientifico)
+   /* public IEnumerable<Especie> GetByNombreCientifico(string nombreCientifico)
     {
         return Context.Set<Especie>().Where(especie => especie.EsNombreCientifico.Contains(nombreCientifico)).ToList();
-    }
+    }*/
 
     public IEnumerable<Especie> GetAll()
     {
-        return Context.Set<Especie>().ToList();
+        String filters = ""; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+        return _restContext.GetAll(filters).GetAwaiter().GetResult();
     }
-
+    /*
     public ICollection<Especie> GetByRango(decimal pesoMinimo, decimal pesoMaximo)
     {
         ICollection<Especie> especiesEnRango = Context.Set<Especie>()
@@ -66,5 +70,5 @@ public class RepositorioEspecie : Repositorio<Especie>, IRepositorioEspecie
             where ee.Habitan == true && ee.EcNombre == ecNombre
             select e
         ).Distinct().ToList();
-    }
+    }*/
 }

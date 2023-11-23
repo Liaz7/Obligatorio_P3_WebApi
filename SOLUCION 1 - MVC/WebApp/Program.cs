@@ -22,8 +22,13 @@ namespace WebApp
             });
 
             builder.Services.AddScoped<IRestContext<Usuario>>(provider => new RestContext<Usuario>(builder.Configuration.GetConnectionString("UsuarioUrl")));
+            // builder.Services.AddScoped<IRestContext<Ecosistema>>(provider => new RestContext<Ecosistema>(builder.Configuration.GetConnectionString("ecosistemasUrl")));
+            builder.Services.AddScoped<IRestContextEcosistema>(provider => new RestContextEcosistema(builder.Configuration.GetConnectionString("EcosistemaUrl")));
+            builder.Services.AddScoped<IRestContext<Amenaza>>(provider => new RestContext<Amenaza>(builder.Configuration.GetConnectionString("EcosistemaUrl")));
+            builder.Services.AddScoped<IRestContext<Especie>>(provider => new RestContext<Especie>(builder.Configuration.GetConnectionString("EcosistemaUrl")));
+            builder.Services.AddScoped<IRestContext<Pais>>(provider => new RestContext<Pais>(builder.Configuration.GetConnectionString("EcosistemaUrl")));
             /*builder.Services.AddScoped<IRestContext<Planta>>(provider => new RestContext<Planta>(builder.Configuration.GetConnectionString("PlantaUrl")));*/
-           // builder.Services.AddScoped<IRestContextLogin>(provider => new RestContextLogin(builder.Configuration.GetConnectionString("UsuarioUrl")));
+            // builder.Services.AddScoped<IRestContextLogin>(provider => new RestContextLogin(builder.Configuration.GetConnectionString("UsuarioUrl")));
 
             builder.Services.AddScoped(typeof(IRepositorioEspecie), typeof(RepositorioEspecie));
 

@@ -10,6 +10,7 @@ namespace DataAccess
 {
     public interface IRepositorioEcosistema : IRepositorio<Ecosistema>
     {
+        /*
         Ecosistema GetByEcosisitema(Ecosistema eco);
 
         IEnumerable<Ecosistema> GetAll();
@@ -19,6 +20,6 @@ namespace DataAccess
 
         Ecosistema GetById(int id);
 
-        void EliminarEnCascada(Ecosistema ecosistema);
+        void EliminarEnCascada(Ecosistema ecosistema);*/
     }
 }

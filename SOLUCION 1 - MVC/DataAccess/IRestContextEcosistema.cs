@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public interface IRepositorioAmenaza : IRepositorio<Amenaza>
+    public interface IRestContextEcosistema
     {
-        IEnumerable<Amenaza> GetAll();
-
-        /*Amenaza GetById(int id);*/
+        Task<EcosistemaDto> Add(EcosistemaDto entity);
     }
 }

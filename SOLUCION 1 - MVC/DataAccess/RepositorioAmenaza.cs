@@ -11,18 +11,22 @@ namespace DataAccess
 {
     public class RepositorioAmenaza : Repositorio<Amenaza>, IRepositorioAmenaza
     {
-        public RepositorioAmenaza(DbContext dbContext)
+        private IRestContext<Amenaza> _restContext;
+
+        public RepositorioAmenaza(IRestContext<Amenaza> restContext)
         {
-            Context = dbContext;
+            //_repositoryTipoRest = new RestContextLogin("https://localhost:7111/api/especies");
+            _restContext = restContext;
         }
         public IEnumerable<Amenaza> GetAll()
         {
-            return Context.Set<Amenaza>().ToList();
+             String filters = ""; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2
+             return _restContext.GetAll(filters).GetAwaiter().GetResult();
         }
 
-        public Amenaza GetById(int id)
+        /*public Amenaza GetById(int id)
         {
             return Context.Set<Amenaza>().FirstOrDefault(am => am.AmId == id);
-        }
+        }*/
     }
 }
