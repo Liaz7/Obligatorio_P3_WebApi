@@ -102,7 +102,7 @@ namespace Servicios
 
         }
 
-        public void Update(string nombreCientifico, EspecieDto especieDto)
+      /*  public void Update(string nombreCientifico, EspecieDto especieDto)
         {
             especieDto.Validar();
             Especie especie = _repositorio.GetOneByNombreCientifico(nombreCientifico);
@@ -133,7 +133,7 @@ namespace Servicios
         public IEnumerable<EspecieDto> GetByNombreEcosistema(string ecNombre)
         {
             return ConvertirListaAListaDto(_repositorio.GetByNombreEcosistema(ecNombre));
-        }
+        }*/
 
     }
 }

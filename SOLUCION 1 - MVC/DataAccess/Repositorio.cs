@@ -6,6 +6,7 @@ public class Repositorio<T> : IRepositorio<T> where T : class
 {
     protected DbContext Context { get; set; }
 
+
     public T Add(T entity)
     {
         Context.Set<T>().Add(entity);

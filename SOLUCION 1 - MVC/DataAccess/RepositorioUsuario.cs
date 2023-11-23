@@ -34,6 +34,13 @@ namespace DataAccess
             return Context.Set<Usuario>().Where(usuario => usuario.UsuarioAlias.Contains(alias));
         }*/
 
+        public Usuario Add(Usuario entity)
+        {
+            
+           return _restContext.Add(entity).GetAwaiter().GetResult();
+        }
+
+
         public Usuario GetUsuarioByAlias(string alias)
         {
            /* String filters = "?"; //eje para un filtro ?variable=valor , para 2 filtros ?variable=valor&variable2=valor2

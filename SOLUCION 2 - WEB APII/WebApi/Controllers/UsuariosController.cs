@@ -36,11 +36,11 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpPost("register")]
+        [HttpPost("/api/Usuarios/register")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public IActionResult Register([FromBody] UsuarioDto registerDto)
+        public IActionResult RegistrarUsuario([FromBody]UsuarioDto registerDto)
         {
             try
             {
